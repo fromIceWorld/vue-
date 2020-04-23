@@ -33,6 +33,10 @@ export function initLifecycle (vm: Component) {
   const options = vm.$options
 
   // locate first non-abstract parent
+  //找出 第一个非抽象（abstract：false）父组件，设置  .$parent = 父组件  并把该组件放到该组件的 .$children中
+  //结果：子组件可访问父组件 父组件可访问子组件
+
+  //如果未找到 则该实例是根实例
   let parent = options.parent
   if (parent && !options.abstract) {
     while (parent.$options.abstract && parent.$parent) {
@@ -42,6 +46,9 @@ export function initLifecycle (vm: Component) {
   }
 
   vm.$parent = parent
+
+  //将根实例传递到每一个子实例
+
   vm.$root = parent ? parent.$root : vm
 
   vm.$children = []
@@ -335,6 +342,8 @@ export function deactivateChildComponent (vm: Component, direct?: boolean) {
 
 export function callHook (vm: Component, hook: string) {
   // #7573 disable dep collection when invoking lifecycle hooks
+  // 调用生命周期挂钩时禁用dep集合
+  // 设置Dep.target = undefined  初始化option时 调用dep.depend（）不会建立依赖
   pushTarget()
   const handlers = vm.$options[hook]
   const info = `${hook} hook`
@@ -343,6 +352,16 @@ export function callHook (vm: Component, hook: string) {
       invokeWithErrorHandling(handlers[i], vm, null, vm, info)
     }
   }
+  //判断是否存在生命周期钩子的事件监听器 默认未false
+  /*   <child
+          @hook:beforeCreate="handleChildBeforeCreate"
+          @hook:created="handleChildCreated"
+          @hook:mounted="handleChildMounted"
+          @hook:生命周期钩子
+         />
+  *
+  *
+  * */
   if (vm._hasHookEvent) {
     vm.$emit('hook:' + hook)
   }

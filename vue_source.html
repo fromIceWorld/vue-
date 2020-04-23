@@ -8,13 +8,14 @@
 <body>
     <div id="app" class='class'>
       {{msg}}
-      <span>Vue</span>
+      <span>{{name}}:Vue</span>
     </div>
     <script type="text/javascript">
         let app = new Vue({
            el:'#app',
            data:{
-             msg:333
+             msg:333,
+             name:'Vue'
            },
            methods:{},
         });

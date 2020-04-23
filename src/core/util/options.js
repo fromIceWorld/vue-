@@ -25,11 +25,15 @@ import {
  * Option overwriting strategies are functions that handle
  * how to merge a parent option value and a child option
  * value into the final value.
+ *
+ *
+ * 选项覆盖策略是处理如何将父选项值和子选项值合并到最终值的函数。
  */
 const strats = config.optionMergeStrategies
 
 /**
  * Options with restrictions
+ * 有限制的选项
  */
 if (process.env.NODE_ENV !== 'production') {
   strats.el = strats.propsData = function (parent, child, vm, key) {
@@ -45,6 +49,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 /**
  * Helper that recursively merges two data objects together.
+ * 递归地将两个数据对象合并在一起的助手
  */
 function mergeData (to: Object, from: ?Object): Object {
   if (!from) return to
@@ -75,6 +80,8 @@ function mergeData (to: Object, from: ?Object): Object {
 
 /**
  * Data
+ *
+ *
  */
 export function mergeDataOrFn (
   parentVal: any,
@@ -142,6 +149,7 @@ strats.data = function (
 
 /**
  * Hooks and props are merged as arrays.
+ * 钩子和 props 合并为数组
  */
 function mergeHook (
   parentVal: ?Array<Function>,
@@ -179,6 +187,7 @@ LIFECYCLE_HOOKS.forEach(hook => {
  * When a vm is present (instance creation), we need to do
  * a three-way merge between constructor options, instance
  * options and parent options.
+ * 当vm存在（实例创建）时，我们需要在构造函数选项、实例选项和父选项之间进行三方合并。
  */
 function mergeAssets (
   parentVal: ?Object,
@@ -204,6 +213,8 @@ ASSET_TYPES.forEach(function (type) {
  *
  * Watchers hashes should not overwrite one
  * another, so we merge them as arrays.
+ *
+ * 观察者散列不应该互相覆盖，所以我们将它们合并为数组。
  */
 strats.watch = function (
   parentVal: ?Object,
@@ -237,6 +248,7 @@ strats.watch = function (
 
 /**
  * Other object hashes.
+ * 其他对象哈希
  */
 strats.props =
 strats.methods =
@@ -258,9 +270,19 @@ strats.computed = function (
 }
 strats.provide = mergeDataOrFn
 
+
+
+
+
+
+
+
 /**
  * Default strategy.
+ *
+ * 默认策略
  */
+//----------------------------当前实例合并构造函数属性  当前实例属性优先
 const defaultStrat = function (parentVal: any, childVal: any): any {
   return childVal === undefined
     ? parentVal
@@ -269,6 +291,7 @@ const defaultStrat = function (parentVal: any, childVal: any): any {
 
 /**
  * Validate component names
+ * 验证组件名称
  */
 function checkComponents (options: Object) {
   for (const key in options.components) {
@@ -294,6 +317,8 @@ export function validateComponentName (name: string) {
 /**
  * Ensure all props option syntax are normalized into the
  * Object-based format.
+ *
+ * 确保所有props选项语法都规范化为基于对象的格式。
  */
 function normalizeProps (options: Object, vm: ?Component) {
   const props = options.props
@@ -331,6 +356,8 @@ function normalizeProps (options: Object, vm: ?Component) {
 
 /**
  * Normalize all injections into Object-based format
+ *
+ * 将所有注入规范化为基于对象的格式
  */
 function normalizeInject (options: Object, vm: ?Component) {
   const inject = options.inject
@@ -358,6 +385,8 @@ function normalizeInject (options: Object, vm: ?Component) {
 
 /**
  * Normalize raw function directives into object format.
+ *
+ * 将原始函数指令规范化为对象格式
  */
 function normalizeDirectives (options: Object) {
   const dirs = options.directives
@@ -381,9 +410,18 @@ function assertObjectType (name: string, value: any, vm: ?Component) {
   }
 }
 
+
 /**
  * Merge two option objects into a new one.
  * Core utility used in both instantiation and inheritance.
+ *
+ * 将两个选项对象合并为一个新对象。用于实例化和继承的核心实用程序
+ *
+ * parent
+ * 获取vue构造函数上的components /directives / filters /_base
+ * child
+ * new Vue时传入的options
+ *
  */
 export function mergeOptions (
   parent: Object,
@@ -393,19 +431,26 @@ export function mergeOptions (
   if (process.env.NODE_ENV !== 'production') {
     checkComponents(child)
   }
-
   if (typeof child === 'function') {
     child = child.options
   }
-
+  //规范化props
   normalizeProps(child, vm)
+  //规范化Inject
   normalizeInject(child, vm)
+  //规范化Directive
   normalizeDirectives(child)
-
   // Apply extends and mixins on the child options,
   // but only if it is a raw options object that isn't
   // the result of another mergeOptions call.
   // Only merged options has the _base property.
+  /*
+  * 对子选项应用extends和mixins，但前提是它是一个原始选项对象，
+  * 而不是另一个mergeOptions调用的结果。只有合并的选项才具有“基础”属性。
+  *
+  *
+  * */
+  //------------------------------------将当前实例中的 extends 和 mixins 放入 parent
   if (!child._base) {
     if (child.extends) {
       parent = mergeOptions(parent, child.extends, vm)
@@ -417,6 +462,8 @@ export function mergeOptions (
     }
   }
 
+  //------------------------------------合并 parent 和child（当前实例）
+
   const options = {}
   let key
   for (key in parent) {
@@ -427,6 +474,7 @@ export function mergeOptions (
       mergeField(key)
     }
   }
+  // 对不同的属性进行不同的合并策略
   function mergeField (key) {
     const strat = strats[key] || defaultStrat
     options[key] = strat(parent[key], child[key], vm, key)
@@ -438,6 +486,8 @@ export function mergeOptions (
  * Resolve an asset.
  * This function is used because child instances need access
  * to assets defined in its ancestor chain.
+ *
+ * 解析asset。使用此函数是因为子实例需要访问其祖先链中定义的asset。
  */
 export function resolveAsset (
   options: Object,
@@ -466,3 +516,6 @@ export function resolveAsset (
   }
   return res
 }
+
+
+

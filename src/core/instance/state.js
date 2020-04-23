@@ -62,10 +62,13 @@ export function initState (vm: Component) {
 }
 
 function initProps (vm: Component, propsOptions: Object) {
-  const propsData = vm.$options.propsData || {}
+  const propsData = vm.$options.propsData || {}   //父组件传入的prop
   const props = vm._props = {}
   // cache prop keys so that future props updates can iterate using Array
   // instead of dynamic object key enumeration.
+  /*
+  *  缓存属性键，以便将来的属性更新可以使用数组而不是动态对象键枚举进行迭代。
+  * */
   const keys = vm.$options._propKeys = []
   const isRoot = !vm.$parent
   // root instance props should be converted

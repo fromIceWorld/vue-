@@ -18,13 +18,16 @@ export function initMixin (Vue: Class<Component>) {
     // a uid
     vm._uid = uid++
 
-    let startTag, endTag
-    /* istanbul ignore if */
-    if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
-      startTag = `vue-perf-start:${vm._uid}`
-      endTag = `vue-perf-end:${vm._uid}`
-      mark(startTag)
-    }
+                                                            let startTag, endTag
+                                                            /* istanbul ignore if
+                                                            *
+                                                            * 测试性能
+                                                            *  */
+                                                            if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
+                                                              startTag = `vue-perf-start:${vm._uid}`
+                                                              endTag = `vue-perf-end:${vm._uid}`
+                                                              mark(startTag)
+                                                            }
 
     // a flag to avoid this being observed
     vm._isVue = true
@@ -33,6 +36,8 @@ export function initMixin (Vue: Class<Component>) {
       // optimize internal component instantiation
       // since dynamic options merging is pretty slow, and none of the
       // internal component options needs special treatment.
+
+      //优化内部组件实例化，因为动态选项合并速度很慢，而且没有一个内部组件选项需要特殊处理。
       initInternalComponent(vm, options)
     } else {
       vm.$options = mergeOptions(
@@ -41,29 +46,41 @@ export function initMixin (Vue: Class<Component>) {
         vm
       )
     }
-    /* istanbul ignore else */
+                                                            /* istanbul ignore else */
     if (process.env.NODE_ENV !== 'production') {
       initProxy(vm)
-    } else {
-      vm._renderProxy = vm
     }
+                                                              else {
+                                                                vm._renderProxy = vm
+                                                              }
     // expose real self
     vm._self = vm
-    initLifecycle(vm)
-    initEvents(vm)
-    initRender(vm)
-    callHook(vm, 'beforeCreate')
-    initInjections(vm) // resolve injections before data/props
-    initState(vm)
-    initProvide(vm) // resolve provide after data/props
-    callHook(vm, 'created')
 
-    /* istanbul ignore if */
-    if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
-      vm._name = formatComponentName(vm, false)
-      mark(endTag)
-      measure(`vue ${vm._name} init`, startTag, endTag)
-    }
+    /*
+     ---------------------------------初始化------------------------------                        */
+    //生命周期初始化
+      initLifecycle(vm)
+    //事件初始化
+      initEvents(vm)   //父组件给子组件的注册事件中 把自定义事件传给子组件，在子组件实例化的时候进行初始化；浏览器原生事件在父组件中处理
+    //render初始化
+      initRender(vm)
+    //调用beforeCreated钩子函数
+      callHook(vm, 'beforeCreate')
+    //初始化Injections
+      initInjections(vm) // resolve injections before data/props
+    //初始化状态
+      initState(vm)
+    //初始化Provide
+      initProvide(vm) // resolve provide after data/props
+    //调用created钩子函数
+      callHook(vm, 'created')
+
+                                                                    /* istanbul ignore if */
+                                                                    if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
+                                                                      vm._name = formatComponentName(vm, false)
+                                                                      mark(endTag)
+                                                                      measure(`vue ${vm._name} init`, startTag, endTag)
+                                                                    }
 
     if (vm.$options.el) {
       vm.$mount(vm.$options.el)
@@ -89,6 +106,8 @@ export function initInternalComponent (vm: Component, options: InternalComponent
     opts.staticRenderFns = options.staticRenderFns
   }
 }
+
+//获取vue构造函数的option
 
 export function resolveConstructorOptions (Ctor: Class<Component>) {
   let options = Ctor.options
@@ -126,3 +145,10 @@ function resolveModifiedOptions (Ctor: Class<Component>): ?Object {
   }
   return modified
 }
+
+
+/*
+* 1-   init 中 将option 与vue construtor 中的option进行合并
+*
+*
+* */

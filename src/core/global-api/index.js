@@ -34,6 +34,7 @@ export function initGlobalAPI (Vue: GlobalAPI) {
   // exposed util methods.
   // NOTE: these are not considered part of the public API - avoid relying on
   // them unless you are aware of the risk.
+  //公开的util方法。注意：这些方法不被视为公共API的一部分-除非您意识到风险，否则请避免依赖它们。
   Vue.util = {
     warn,
     extend,
@@ -52,12 +53,26 @@ export function initGlobalAPI (Vue: GlobalAPI) {
   }
 
   Vue.options = Object.create(null)
+
+  /*
+  *
+  *         ASSET_TYPES = [
+                    'component',
+                    'directive',
+                    'filter'
+                          ]
+  *
+  *
+  * */
+
   ASSET_TYPES.forEach(type => {
     Vue.options[type + 's'] = Object.create(null)
   })
 
   // this is used to identify the "base" constructor to extend all plain-object
   // components with in Weex's multi-instance scenarios.
+
+  //这用于标识“基本”构造函数，以在Weex的多实例方案中扩展所有纯对象组件。
   Vue.options._base = Vue
 
   extend(Vue.options.components, builtInComponents)
@@ -67,3 +82,20 @@ export function initGlobalAPI (Vue: GlobalAPI) {
   initExtend(Vue)
   initAssetRegisters(Vue)
 }
+
+
+/*
+
+initGlobalAPI 过程中
+
+1-设置vue的config                     p22-32
+2-添加util set delete nextTick 方法
+3-添加options ={
+   component，
+   directive，
+   filters }
+4-option._base = vue
+5-设置vue.use函数
+5-initMixin（Vue）=> Vue原型添加_init函数
+
+*/
