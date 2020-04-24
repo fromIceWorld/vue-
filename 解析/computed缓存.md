@@ -1,6 +1,6 @@
 ### computed官方API
 
-![](C:\Users\Administrator\Desktop\vue-\解析\image-20200423141327826.png)
+![](./image-20200423141327826.png)
 
 ### initComputed源码
 
