@@ -25,6 +25,10 @@ const ALWAYS_NORMALIZE = 2
 
 // wrapper function for providing a more flexible interface
 // without getting yelled at by flow
+/*
+*
+* 包装器函数，提供一个更灵活的接口，而不会受到流的攻击
+* */
 export function createElement (
   context: Component,
   tag: any,
@@ -60,14 +64,17 @@ export function _createElement (
     return createEmptyVNode()
   }
   // object syntax in v-bind
+  // v-bind中的对象语法
   if (isDef(data) && isDef(data.is)) {
     tag = data.is
   }
   if (!tag) {
     // in case of component :is set to falsy value
+    //在组件的情况下：设置为falsy值
     return createEmptyVNode()
   }
   // warn against non-primitive key
+  //对非基元密钥发出警告
   if (process.env.NODE_ENV !== 'production' &&
     isDef(data) && isDef(data.key) && !isPrimitive(data.key)
   ) {
@@ -80,6 +87,7 @@ export function _createElement (
     }
   }
   // support single function children as default scoped slot
+  //支持将单函数子级作为默认作用域插槽
   if (Array.isArray(children) &&
     typeof children[0] === 'function'
   ) {
@@ -98,6 +106,7 @@ export function _createElement (
     ns = (context.$vnode && context.$vnode.ns) || config.getTagNamespace(tag)
     if (config.isReservedTag(tag)) {
       // platform built-in elements
+      //平台内置元件
       vnode = new VNode(
         config.parsePlatformTagName(tag), data, children,
         undefined, undefined, context
@@ -109,6 +118,7 @@ export function _createElement (
       // unknown or unlisted namespaced elements
       // check at runtime because it may get assigned a namespace when its
       // parent normalizes children
+      //运行时检查未知或未列出的命名空间元素，因为其父级规范化子级时可能会为其分配命名空间
       vnode = new VNode(
         tag, data, children,
         undefined, undefined, context
@@ -116,6 +126,7 @@ export function _createElement (
     }
   } else {
     // direct component options / constructor
+    //直接组件选项/构造函数
     vnode = createComponent(tag, data, context, children)
   }
   if (Array.isArray(vnode)) {

@@ -22,6 +22,9 @@ let uid = 0
  * A watcher parses an expression, collects dependencies,
  * and fires callback when the expression value changes.
  * This is used for both the $watch() api and directives.
+ *
+ *
+ * 观察程序解析表达式，收集依赖项，并在表达式值更改时触发回调。这用于$watch（）api和指令。
  */
 export default class Watcher {
   vm: Component;
@@ -97,13 +100,14 @@ export default class Watcher {
 
   /**
    * Evaluate the getter, and re-collect dependencies.
+   * 计算getter，然后重新收集依赖项。
    */
   get () {
     pushTarget(this)
     let value
     const vm = this.vm
     try {
-      value = this.getter.call(vm, vm)
+      value = this.getter.call(vm, vm)   //computed函数
     } catch (e) {
       if (this.user) {
         handleError(e, vm, `getter for watcher "${this.expression}"`)
@@ -124,6 +128,7 @@ export default class Watcher {
 
   /**
    * Add a dependency to this directive.
+   * 添加依赖
    */
   addDep (dep: Dep) {
     const id = dep.id
@@ -131,7 +136,7 @@ export default class Watcher {
       this.newDepIds.add(id)
       this.newDeps.push(dep)
       if (!this.depIds.has(id)) {
-        dep.addSub(this)
+        dep.addSub(this)            
       }
     }
   }
@@ -160,6 +165,8 @@ export default class Watcher {
   /**
    * Subscriber interface.
    * Will be called when a dependency changes.
+   *
+   * 用户接口。将在依赖项更改时调用。
    */
   update () {
     /* istanbul ignore else */
@@ -206,6 +213,8 @@ export default class Watcher {
   /**
    * Evaluate the value of the watcher.
    * This only gets called for lazy watchers.
+   *
+   * 评估观察者的值。这只适用于懒惰的观察者。
    */
   evaluate () {
     this.value = this.get()
@@ -214,6 +223,7 @@ export default class Watcher {
 
   /**
    * Depend on all deps collected by this watcher.
+   * 收集所有的依赖于此监视程序DEP。
    */
   depend () {
     let i = this.deps.length

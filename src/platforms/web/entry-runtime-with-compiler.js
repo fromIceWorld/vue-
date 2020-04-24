@@ -9,19 +9,31 @@ import { query } from './util/index'
 import { compileToFunctions } from './compiler/index'
 import { shouldDecodeNewlines, shouldDecodeNewlinesForHref } from './util/compat'
 
+
+
 const idToTemplate = cached(id => {
   const el = query(id)
   return el && el.innerHTML
 })
 
+/**************************
+ *
+ * 缓存$mount函数
+ *
+ * ************************/
 const mount = Vue.prototype.$mount
+
 Vue.prototype.$mount = function (
   el?: string | Element,
   hydrating?: boolean
 ): Component {
   el = el && query(el)
 
-  /* istanbul ignore if */
+
+/*********************************
+* 禁止挂载到body html 根节点
+* ********************************/
+
   if (el === document.body || el === document.documentElement) {
     process.env.NODE_ENV !== 'production' && warn(
       `Do not mount Vue to <html> or <body> - mount to normal elements instead.`
@@ -30,7 +42,11 @@ Vue.prototype.$mount = function (
   }
 
   const options = this.$options
-  // resolve template/el and convert to render function
+  /***************************
+  *
+  * 解析模板/el并转换为呈现函数
+  *
+  * **************************/
   if (!options.render) {
     let template = options.template
     if (template) {
@@ -62,6 +78,8 @@ Vue.prototype.$mount = function (
         mark('compile')
       }
 
+      //compileToFunctions将tempelate 转换成 render
+
       const { render, staticRenderFns } = compileToFunctions(template, {
         outputSourceRange: process.env.NODE_ENV !== 'production',
         shouldDecodeNewlines,
@@ -79,6 +97,7 @@ Vue.prototype.$mount = function (
       }
     }
   }
+  //调用缓存的mount方法
   return mount.call(this, el, hydrating)
 }
 

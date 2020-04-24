@@ -187,6 +187,9 @@ function initComputed (vm: Component, computed: Object) {
 
     if (!isSSR) {
       // create internal watcher for the computed property.
+      /*
+      * 为计算属性创建内部观察程序
+      * */
       watchers[key] = new Watcher(
         vm,
         getter || noop,
@@ -198,6 +201,9 @@ function initComputed (vm: Component, computed: Object) {
     // component-defined computed properties are already defined on the
     // component prototype. We only need to define computed properties defined
     // at instantiation here.
+    /*
+    * 已在组件原型上定义组件定义的计算属性。我们只需要在这里定义实例化时定义的计算属性
+    * */
     if (!(key in vm)) {
       defineComputed(vm, key, userDef)
     } else if (process.env.NODE_ENV !== 'production') {
@@ -240,6 +246,17 @@ export function defineComputed (
   }
   Object.defineProperty(target, key, sharedPropertyDefinition)
 }
+
+
+
+
+
+
+
+
+
+
+
 
 function createComputedGetter (key) {
   return function computedGetter () {
@@ -355,6 +372,7 @@ export function stateMixin (Vue: Class<Component>) {
       return createWatcher(vm, expOrFn, cb, options)
     }
     options = options || {}
+    //用户调用的watcher
     options.user = true
     const watcher = new Watcher(vm, expOrFn, cb, options)
     if (options.immediate) {
