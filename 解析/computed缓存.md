@@ -1,10 +1,10 @@
 ### computed官方API
 
-![image-20200423141327826](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200423141327826.png)
+![](C:\Users\Administrator\Desktop\vue-\解析\image-20200423141327826.png)
 
 ### initComputed源码
 
-![image-20200423142019878](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200423142019878.png)
+![](C:\Users\Administrator\Desktop\vue-\解析\image-20200423142019878.png)
 
 在vue初始化computed属性时传入  **当前实例**    和 **computed对象**
 
@@ -44,7 +44,7 @@ _computedWatchers[key] = {
 在这个步骤里是将计算属性的 get 定为 createComputedGetter 函数
 ```
 
-![image-20200423154116938](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200423154116938.png)
+![](C:\Users\Administrator\Desktop\vue-\解析\image-20200423154116938.png)
 
 在模板编译阶段 用到 computed属性时执行 createComputedGetter 函数获取 当前实例的_computedWatchers 属性中的计算属性
 
