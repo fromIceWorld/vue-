@@ -148,31 +148,38 @@ export function createComponent (
 
   // resolve constructor options in case global mixins are applied after
   // component constructor creation
+//在组件构造函数创建后应用全局混合时解析构造函数选项
   resolveConstructorOptions(Ctor)
 
   // transform component v-model data into props & events
+//将组件v-model数据转换为道具和事件
   if (isDef(data.model)) {
     transformModel(Ctor.options, data)
   }
 
   // extract props
+//提取props
   const propsData = extractPropsFromVNodeData(data, Ctor, tag)
 
   // functional component
+//功能部件
   if (isTrue(Ctor.options.functional)) {
     return createFunctionalComponent(Ctor, propsData, data, context, children)
   }
 
   // extract listeners, since these needs to be treated as
   // child component listeners instead of DOM listeners
+//提取侦听器，因为这些侦听器需要被视为子组件侦听器而不是DOM侦听器
   const listeners = data.on
   // replace with listeners with .native modifier
   // so it gets processed during parent component patch.
+//用.native修饰符替换为侦听器，以便在父组件修补期间对其进行处理。
   data.on = data.nativeOn
 
   if (isTrue(Ctor.options.abstract)) {
     // abstract components do not keep anything
     // other than props & listeners & slot
+    //抽象组件除了props&listeners&slot之外不保留任何内容
 
     // work around flow
     const slot = data.slot
@@ -183,6 +190,7 @@ export function createComponent (
   }
 
   // install component management hooks onto the placeholder node
+//在占位符节点上安装组件管理挂钩
   installComponentHooks(data)
 
   // return a placeholder vnode

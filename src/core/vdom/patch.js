@@ -720,6 +720,7 @@ export function createPatchFunction (backend) {
           // mounting to a real element
           // check if this is server-rendered content and if we can perform
           // a successful hydration.
+          //安装到一个真正的元素检查这是否是服务器呈现的内容，以及我们是否可以执行一个成功的水合。
           if (oldVnode.nodeType === 1 && oldVnode.hasAttribute(SSR_ATTR)) {
             oldVnode.removeAttribute(SSR_ATTR)
             hydrating = true

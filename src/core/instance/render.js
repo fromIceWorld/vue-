@@ -67,6 +67,8 @@ export function setCurrentRenderingInstance (vm: Component) {
   currentRenderingInstance = vm
 }
 
+
+
 export function renderMixin (Vue: Class<Component>) {
   // install runtime convenience helpers
   installRenderHelpers(Vue.prototype)
@@ -90,6 +92,7 @@ export function renderMixin (Vue: Class<Component>) {
 
     // set parent vnode. this allows render functions to have access
     // to the data on the placeholder node.
+    //设置父vnode。这允许呈现函数访问占位符节点上的数据。
     vm.$vnode = _parentVnode
     // render self
     let vnode
@@ -97,6 +100,8 @@ export function renderMixin (Vue: Class<Component>) {
       // There's no need to maintain a stack becaues all render fns are called
       // separately from one another. Nested component's render fns are called
       // when parent component is patched.
+
+      //不需要维护堆栈，因为所有渲染FN都是彼此独立调用的。在修补父组件时调用嵌套组件的渲染FN。
       currentRenderingInstance = vm
       vnode = render.call(vm._renderProxy, vm.$createElement)
     } catch (e) {
@@ -122,6 +127,7 @@ export function renderMixin (Vue: Class<Component>) {
       vnode = vnode[0]
     }
     // return empty vnode in case the render function errored out
+    //如果呈现函数出错，返回空vnode
     if (!(vnode instanceof VNode)) {
       if (process.env.NODE_ENV !== 'production' && Array.isArray(vnode)) {
         warn(

@@ -54,6 +54,7 @@ export function toRawType (value: any): string {
 /**
  * Strict object type check. Only returns true
  * for plain JavaScript objects.
+ * 严格的对象类型检查。仅对纯JavaScript对象返回true
  */
 export function isPlainObject (obj: any): boolean {
   return _toString.call(obj) === '[object Object]'
@@ -254,6 +255,7 @@ export function toObject (arr: Array<any>): Object {
  * Perform no operation.
  * Stubbing args to make Flow happy without leaving useless transpiled code
  * with ...rest (https://flow.org/blog/2017/05/07/Strict-Function-Call-Arity/).
+ * 不执行任何操作。stubing参数使流愉快，而不留下无用的带…rest的透明代码
  */
 export function noop (a?: any, b?: any, c?: any) {}
 

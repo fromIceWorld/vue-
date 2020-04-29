@@ -59,6 +59,7 @@ export default ({
 
   /**
    * Whether to record perf
+   * 是否记录性能
    */
   performance: false,
 
@@ -86,6 +87,7 @@ export default ({
   /**
    * Check if a tag is reserved so that it cannot be registered as a
    * component. This is platform-dependent and may be overwritten.
+   * 检查标记是否被保留，以便不能将其注册为组件。这取决于平台，可能会被覆盖。
    */
   isReservedTag: no,
 
@@ -103,6 +105,7 @@ export default ({
 
   /**
    * Get the namespace of an element
+   * 获取元素的命名空间
    */
   getTagNamespace: noop,
 

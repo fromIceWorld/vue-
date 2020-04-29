@@ -336,14 +336,24 @@ function createWatcher (
   return vm.$watch(expOrFn, handler, options)
 }
 
+
+
+
+
+
 export function stateMixin (Vue: Class<Component>) {
+  
   // flow somehow has problems with directly declared definition object
   // when using Object.defineProperty, so we have to procedurally build up
   // the object here.
+  //在使用object.defineProperty时，flow在直接声明definition对象方面有一些问题，因此我们必须在这里按程序构建对象
   const dataDef = {}
   dataDef.get = function () { return this._data }
   const propsDef = {}
   propsDef.get = function () { return this._props }
+
+
+
   if (process.env.NODE_ENV !== 'production') {
     dataDef.set = function () {
       warn(
@@ -356,12 +366,17 @@ export function stateMixin (Vue: Class<Component>) {
       warn(`$props is readonly.`, this)
     }
   }
+
+
+  
   Object.defineProperty(Vue.prototype, '$data', dataDef)
   Object.defineProperty(Vue.prototype, '$props', propsDef)
 
+  
   Vue.prototype.$set = set
   Vue.prototype.$delete = del
 
+  
   Vue.prototype.$watch = function (
     expOrFn: string | Function,
     cb: any,

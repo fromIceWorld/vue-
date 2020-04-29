@@ -33,7 +33,7 @@ export function initLifecycle (vm: Component) {
   const options = vm.$options
 
   // locate first non-abstract parent
-  //找出 第一个非抽象（abstract：false）父组件，设置  .$parent = 父组件  并把该组件放到该组件的 .$children中
+  //找出 第一个非抽象（abstract：false）父组件，设置  .$parent = 父组件  并把该组件放到父组件的 .$children中
   //结果：子组件可访问父组件 父组件可访问子组件
 
   //如果未找到 则该实例是根实例

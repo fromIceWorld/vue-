@@ -14,10 +14,35 @@ function Vue (options) {
   this._init(options)
 }
 
+/*----------------------------
+* 为Vue构造函数的原型上添加 _init 函数
+*
+* -------------------*/
 initMixin(Vue)
+
+/*----------------------------
+* 为Vue构造函数的原型上添加 $set $delete $data $props $watch函数
+*
+* -------------------*/
 stateMixin(Vue)
+
+/*----------------------------
+* 为Vue构造函数的原型上添加 $on $once $off $emit $watch函数
+*
+* -------------------*/
+
 eventsMixin(Vue)
+
+/*----------------------------
+* 为Vue构造函数的原型上添加 _update $forceUpdate $destroy 函数
+*
+* -------------------*/
 lifecycleMixin(Vue)
+
+/*----------------------------
+* 为Vue构造函数的原型上添加 $nextTick _render  函数
+*
+* -------------------*/
 renderMixin(Vue)
 
 export default Vue

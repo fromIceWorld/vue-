@@ -32,20 +32,27 @@ export function initMixin (Vue: Class<Component>) {
     // a flag to avoid this being observed
     vm._isVue = true
     // merge options
-    if (options && options._isComponent) {
+    if (options && options._isComponent) { //组件标志
       // optimize internal component instantiation
       // since dynamic options merging is pretty slow, and none of the
       // internal component options needs special treatment.
 
       //优化内部组件实例化，因为动态选项合并速度很慢，而且没有一个内部组件选项需要特殊处理。
       initInternalComponent(vm, options)
-    } else {
+    }
+
+
+
+
+    else {
       vm.$options = mergeOptions(
-        resolveConstructorOptions(vm.constructor),
+        resolveConstructorOptions(vm.constructor),  //构造函数中的options
         options || {},
         vm
       )
     }
+
+
                                                             /* istanbul ignore else */
     if (process.env.NODE_ENV !== 'production') {
       initProxy(vm)
@@ -58,7 +65,26 @@ export function initMixin (Vue: Class<Component>) {
 
     /*
      ---------------------------------初始化------------------------------                        */
-    //生命周期初始化
+
+    /*---------------------------------生命周期初始化-----------
+    *   vm.$parent = 父组件
+        vm.$root = parent ? parent.$root : vm
+        vm.$children = []
+        vm.$refs = {}
+        vm._watcher = null
+        vm._inactive = null
+        vm._directInactive = false
+        vm._isMounted = false
+        vm._isDestroyed = false
+        vm._isBeingDestroyed = false
+    *
+    *  1-初始化一些属性
+    *  2-将第一个【非抽象父组件】保存到实例中 并将自身保存到父组件的 $children中
+    *
+    * ----------------------------------------*/
+
+
+
       initLifecycle(vm)
     //事件初始化
       initEvents(vm)   //父组件给子组件的注册事件中 把自定义事件传给子组件，在子组件实例化的时候进行初始化；浏览器原生事件在父组件中处理

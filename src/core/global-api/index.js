@@ -19,7 +19,8 @@ import {
 } from '../util/index'
 
 export function initGlobalAPI (Vue: GlobalAPI) {
-  // config
+
+  // Vue.config 配置
   const configDef = {}
   configDef.get = () => config
   if (process.env.NODE_ENV !== 'production') {
@@ -30,6 +31,9 @@ export function initGlobalAPI (Vue: GlobalAPI) {
     }
   }
   Object.defineProperty(Vue, 'config', configDef)
+
+
+
 
   // exposed util methods.
   // NOTE: these are not considered part of the public API - avoid relying on
@@ -46,14 +50,19 @@ export function initGlobalAPI (Vue: GlobalAPI) {
   Vue.delete = del
   Vue.nextTick = nextTick
 
+  
+  
   // 2.6 explicit observable API
   Vue.observable = <T>(obj: T): T => {
     observe(obj)
     return obj
   }
 
+  
+  
   Vue.options = Object.create(null)
 
+  
   /*
   *
   *         ASSET_TYPES = [
@@ -88,7 +97,7 @@ export function initGlobalAPI (Vue: GlobalAPI) {
 
 initGlobalAPI 过程中
 
-1-设置vue的config                     p22-32
+1-设置vue的config                    
 2-添加util set delete nextTick 方法
 3-添加options ={
    component，
@@ -96,6 +105,5 @@ initGlobalAPI 过程中
    filters }
 4-option._base = vue
 5-设置vue.use函数
-5-initMixin（Vue）=> Vue原型添加_init函数
 
 */

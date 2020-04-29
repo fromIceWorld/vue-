@@ -7,8 +7,6 @@
 </head>
 <body>
     <div id="app" class='class'>
-      {{msg}}
-      <span>{{name}}:Vue</span>
     </div>
     <script type="text/javascript">
         let app = new Vue({
@@ -17,9 +15,11 @@
              msg:333,
              name:'Vue'
            },
-          template:'<span>1</span>',
            methods:{},
-        });
+          render:function (creatElement){
+             return creatElement('div' ,{'class':'cls'},[this.msg])
+          }
+        })
 </script>
 </body>
 </html>
