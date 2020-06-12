@@ -9,7 +9,8 @@ initGlobalAPI(Vue)
 
 
 
-Object.defineProperty(Vue.prototype, '$isServer', {
+Object.defineProperty(Vue.prototype, '$isServer',
+  {
   get: isServerRendering
 })
 

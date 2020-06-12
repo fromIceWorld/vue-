@@ -14,6 +14,25 @@ function Vue (options) {
   this._init(options)
 }
 
+//    在new Vue 的过程中其实只调用了vue原型上的 _init(options) 函数,
+// 将我们参数(el,data,computed,watch...)属性传入 _init()函数中
+ 注: _init() 是{initMixin}挂载到vue的原型上
+
+
+vue的许多方法都是通过一些函数进行注入:
+{initMixin}      ==>  _init()
+
+{stateMixin}     ==>  $set       $delete      $data    $props $watch
+
+{eventsMixin}    ==>  _update    $forceUpdate $destroy
+
+{lifecycleMixin} ==>  _update    $forceUpdate $destroy
+
+{renderMixin}    ==>  $nextTick  _render
+
+
+
+
 /*----------------------------
 * 为Vue构造函数的原型上添加 _init 函数
 *
@@ -40,7 +59,7 @@ eventsMixin(Vue)
 lifecycleMixin(Vue)
 
 /*----------------------------
-* 为Vue构造函数的原型上添加 $nextTick _render  函数
+* 为Vue构造函数的原型上添加 $nextTick  _render  函数
 *
 * -------------------*/
 renderMixin(Vue)

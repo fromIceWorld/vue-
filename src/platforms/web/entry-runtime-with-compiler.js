@@ -78,7 +78,14 @@ Vue.prototype.$mount = function (
         mark('compile')
       }
 
-      //compileToFunctions将tempelate 转换成 render
+      /******************************************
+      *
+      *
+      * compileToFunctions将template 转换成 render
+      *
+      * ******************************************/
+
+      
 
       const { render, staticRenderFns } = compileToFunctions(template, {
         outputSourceRange: process.env.NODE_ENV !== 'production',
@@ -87,6 +94,10 @@ Vue.prototype.$mount = function (
         delimiters: options.delimiters,
         comments: options.comments
       }, this)
+      
+      
+      
+      
       options.render = render
       options.staticRenderFns = staticRenderFns
 

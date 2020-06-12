@@ -6,19 +6,17 @@
     <script src="./dist/vue.js"></script>
 </head>
 <body>
-    <div id="app" class='class'>
+    <div id="app" :class='name'>
+      <span :id="span" v-for="(item,index) in msg">{{index}}-{{item.name}}</span>
     </div>
     <script type="text/javascript">
         let app = new Vue({
            el:'#app',
            data:{
-             msg:333,
+             msg:[{name:'one',age:1},{name:'two',age:2}],
              name:'Vue'
            },
-           methods:{},
-          render:function (creatElement){
-             return creatElement('div' ,{'class':'cls'},[this.msg])
-          }
+           methods:{}
         })
 </script>
 </body>

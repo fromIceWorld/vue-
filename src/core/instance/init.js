@@ -12,6 +12,7 @@ import { extend, mergeOptions, formatComponentName } from '../util/index'
 
 let uid = 0
 
+
 export function initMixin (Vue: Class<Component>) {
   Vue.prototype._init = function (options?: Object) {
     const vm: Component = this
@@ -42,8 +43,6 @@ export function initMixin (Vue: Class<Component>) {
     }
 
 
-
-
     else {
       vm.$options = mergeOptions(
         resolveConstructorOptions(vm.constructor),  //构造函数中的options
@@ -57,9 +56,9 @@ export function initMixin (Vue: Class<Component>) {
     if (process.env.NODE_ENV !== 'production') {
       initProxy(vm)
     }
-                                                              else {
-                                                                vm._renderProxy = vm
-                                                              }
+    else {
+      vm._renderProxy = vm
+    }
     // expose real self
     vm._self = vm
 
@@ -82,13 +81,14 @@ export function initMixin (Vue: Class<Component>) {
     *  2-将第一个【非抽象父组件】保存到实例中 并将自身保存到父组件的 $children中
     *
     * ----------------------------------------*/
-
-
-
       initLifecycle(vm)
-    //事件初始化
+
+
+    //----------------------------------事件初始化-------------------------
       initEvents(vm)   //父组件给子组件的注册事件中 把自定义事件传给子组件，在子组件实例化的时候进行初始化；浏览器原生事件在父组件中处理
-    //render初始化
+
+
+    //----------------------------------render初始化--------------------------
       initRender(vm)
     //调用beforeCreated钩子函数
       callHook(vm, 'beforeCreate')
@@ -101,18 +101,52 @@ export function initMixin (Vue: Class<Component>) {
     //调用created钩子函数
       callHook(vm, 'created')
 
-                                                                    /* istanbul ignore if */
-                                                                    if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
-                                                                      vm._name = formatComponentName(vm, false)
-                                                                      mark(endTag)
-                                                                      measure(`vue ${vm._name} init`, startTag, endTag)
-                                                                    }
+                                                  /* istanbul ignore if */
+                                                  if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
+                                                    vm._name = formatComponentName(vm, false)
+                                                    mark(endTag)
+                                                    measure(`vue ${vm._name} init`, startTag, endTag)
+                                                  }
 
     if (vm.$options.el) {
       vm.$mount(vm.$options.el)
     }
   }
 }
+
+
+//在 _init(options)执行过程中，生成了 Vue 实例 vm,
+//对 vm 实例添加一些标记及属性：
+    vm._uid = uid++;
+    vm._isVue = true;
+    vm._self = vm;
+//初始化组件(options._isComponent)
+/如果是组件的话 调用组件初始化方法：initInternalComponent
+
+/非组件的话，将vm中的 options 和vm构造函数上的options进行合并:
+/vm.$options = mergeOptions(resolveConstructorOptions(vm.constructor),
+/                           options || {},
+/                           vm)
+
+//添加vm._renderProxy属性
+/如果支持proxy属性的话 ,对vm进行代理(proxy)处理,vm._renderProxy = new Proxy(vm,handler)
+/否则 vm._renderProxy还等于自身
+
+
+// 及初始化初始化一些属性
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export function initInternalComponent (vm: Component, options: InternalComponentOptions) {
   const opts = vm.$options = Object.create(vm.constructor.options)
