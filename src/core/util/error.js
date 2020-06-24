@@ -48,6 +48,7 @@ export function invokeWithErrorHandling (
     if (res && !res._isVue && isPromise(res) && !res._handled) {
       res.catch(e => handleError(e, vm, info + ` (Promise/async)`))
       // issue #9511
+      //避免在嵌套调用时多次触发catch
       // avoid catch triggering multiple times when nested calls
       res._handled = true
     }

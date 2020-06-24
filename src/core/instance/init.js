@@ -45,7 +45,22 @@ export function initMixin (Vue: Class<Component>) {
 
     else {
       vm.$options = mergeOptions(
-        resolveConstructorOptions(vm.constructor),  //构造函数中的options
+        //构造函数中的options
+        Vue.options = {
+                              components: {
+                                    KeepAlive,
+                                    Transition,
+                                    TransitionGroup
+                                  },
+                              directives:{
+                                      model,
+                                      show
+                                    },
+                              filters: Object.create(null),
+                              _base: Vue
+                            },
+        resolveConstructorOptions(vm.constructor),
+          //new Vue时传入的options
         options || {},
         vm
       )
@@ -115,12 +130,15 @@ export function initMixin (Vue: Class<Component>) {
 }
 
 
+
+
 //在 _init(options)执行过程中，生成了 Vue 实例 vm,
 //对 vm 实例添加一些标记及属性：
     vm._uid = uid++;
     vm._isVue = true;
     vm._self = vm;
 //初始化组件(options._isComponent)
+
 /如果是组件的话 调用组件初始化方法：initInternalComponent
 
 /非组件的话，将vm中的 options 和vm构造函数上的options进行合并:

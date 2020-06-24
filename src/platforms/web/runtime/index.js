@@ -21,8 +21,8 @@ import platformComponents from './components/index'
 
 // install platform specific utils
 Vue.config.mustUseProp = mustUseProp
-Vue.config.isReservedTag = isReservedTag
-Vue.config.isReservedAttr = isReservedAttr
+Vue.config.isReservedTag = isReservedTag  //保留标签
+Vue.config.isReservedAttr = isReservedAttr //保留属性
 Vue.config.getTagNamespace = getTagNamespace
 Vue.config.isUnknownElement = isUnknownElement
 

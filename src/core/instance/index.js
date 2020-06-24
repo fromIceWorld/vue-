@@ -22,9 +22,9 @@ function Vue (options) {
 vue的许多方法都是通过一些函数进行注入:
 {initMixin}      ==>  _init()
 
-{stateMixin}     ==>  $set       $delete      $data    $props $watch
+{stateMixin}     ==>  $set       $delete      $data    $props  $watch
 
-{eventsMixin}    ==>  _update    $forceUpdate $destroy
+{eventsMixin}    ==>  $on   $once   $off  $emit
 
 {lifecycleMixin} ==>  _update    $forceUpdate $destroy
 

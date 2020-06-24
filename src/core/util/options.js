@@ -423,6 +423,10 @@ function assertObjectType (name: string, value: any, vm: ?Component) {
  * new Vue时传入的options
  *
  */
+
+
+//这个函数 不止在 _init()函数中用到，还在Vue.extends()中用到
+//-子组件的实现方式就是通过实例化子类完成的，子类又是通过 Vue.extend 创造出来的,可以通过是否传递vm判断是子组件还是实例
 export function mergeOptions (
   parent: Object,
   child: Object,

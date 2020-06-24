@@ -90,4 +90,8 @@ if (process.env.NODE_ENV !== 'production') {
   }
 }
 
+//当使用webpack打包工具时，会使用vue-loader进行模板编译，这个时候options.render存在，_withStripped为true
+
+
+
 export { initProxy }
