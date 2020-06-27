@@ -7,8 +7,9 @@
 </head>
 <body>
 <!--sdcsd-->
+<component></component>
     <div id="app" :class='name'>
-      <span :id="span" v-for="(item,index) in msg">{{index}}-{{item.name}}</span>
+      <span :id="span" >{{msg}}</span>
     </div>
     <script type="text/javascript">
         let app = new Vue({
