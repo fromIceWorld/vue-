@@ -53,7 +53,7 @@ function decodeAttr (value, shouldDecodeNewlines) {
 
 export function parseHTML (html, options) {
   const stack = []
-  const expectHTML = options.expectHTML
+  const expectHTML = options.expectHTML  //true
   const isUnaryTag = options.isUnaryTag || no
   const canBeLeftOpenTag = options.canBeLeftOpenTag || no
   let index = 0

@@ -522,4 +522,96 @@ export function resolveAsset (
 }
 
 
+/*-------------mergeOptions分析----------
 
+检查用户传入的component的名称是否符合规定
+
+1-normalizeProps将props属性都转化为对象格式：
+  props:['key'] => props:{
+                        key:{
+                          type:null
+                        }
+                      }
+  ------------------------------------------------
+  props:{       =>  props:{
+    key:Number         key:{
+  }                       type:Number
+                        }
+                      }
+  ------------------------------------------------
+  props:{        =>    标准格式
+    key:{
+      type:Number,
+      default:0
+    }
+  }
+
+
+2-normalizeInject将inject属性转化为对象格式：
+
+  inject:{
+    key:{
+      from:key,
+      default:'value'
+    }
+  }
+3-normalizeDirectives将指令规范化
+  derectives:{     ==>
+    test:function(){}
+  }
+   derectives:{     ==>
+    test:{
+      bind:function(){},
+      update:function(){},
+    }
+  }
+4-将options中的extend和mixins与parent合并（运行mergeOptions合并）
+5-将parent和child中的数据集中到options
+  ①将parent中的数据合并到options
+    parent={
+          components: {
+                KeepAlive,
+                Transition,
+                TransitionGroup
+            },
+          directives:{
+              model,
+              show
+          },
+          filters: Object.create(null),
+          _base: Vue
+    }
+6-在合并属性的时候，根据key的不同采取不同的合并的策略
+
+前提：parent除了Vue构造函数上的属性还extend 和mixin了一些属性
+
+-----components / directives filters 采取 mergeAssets 合并策略：
+会将Vue构造函数中的components /directives / filters 中的数据放到实例对应的属性的原型上，然后将传入的 components /directives / filters 放入实例的属性上
+
+-----data 采取自己的合并策略
+data最终采用mergeDataOrFn合并策略，返回 mergedInstanceDataFn 函数
+所以options['data'] = mergedInstanceDataFn
+
+-----生命周期函数 采取mergeHook合并策略
+将parent中的生命周期函数与传入的生命周期函数进行合并为[parentHook,childHook]，再进行去重
+
+-----watch 采取自己的合并策略
+如果child没有watch属性，直接将parent中的watch对象挂到options.watch属性原型上，
+如果parent没有watch属性，直接将child返回
+当两者都有的话，如果监听的是一个值，也就是 watch[key]相同，会将两个相同的回调函数放到同一个数组，同样是[parent,child]形式，
+最终形成的形式是 watch[key]=[func,fun2],回调函数形成数组格式
+
+-----props methods inject computed 采取一种合并策略
+如果没有parent属性的话，直接将child返回
+当有parent属性，会新建一个原型为空的空对象，将parent合并到空对象中，再将child属性合并进去，如果有相同的属性，进行覆盖。
+
+-----provide 采取 mergeDataOrFn 合并策略
+同样返回一个函数mergedInstanceDataFn
+
+-----其他的采取 defaultStrat 合并策略
+child属性优先，有child属性就直接返回，没有child就返回parent(_base属于默认策略)
+
+
+-----el / propsData
+在非生产环境下，对 el propsData 进行规范，如果在Vue.extent中 组件有el 会进行告警，同样采取默认合并策略
+*/

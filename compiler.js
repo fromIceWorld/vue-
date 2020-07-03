@@ -7,16 +7,29 @@
 *
 * */
 
+
+
+
+
 const commentRex = /^<!--/                       //注释
 const endTag = /^<\/([a-zA-Z][\w-_]*)>/        //结束标签
 const startTagOpen = /^<([a-zA-Z][\w-_]*)\s*/  //开始标签的开口
 const startTagClose = /^\s*(\/?)>/            //开始标签的结束
-const attribute = /^\s*([a-zA-Z-_]+)\s*(=?)\s*(?:"([^"]+)"|'([^']+)')?/  //匹配 class= "clA1"  class = 'cla2'  disable
+const attribute = /^\s*([^\s"'<>\/=]+)\s*(=?)\s*(?:"([^"]+)"|'([^']+)')?/  //匹配 class= "clA1"  class = 'cla2'  disable
 const activeAttr = /^\s*(v-[a-zA-Z]+:|:+|@+)((?:\[)?[a-zA-Z]+(?:\]?))\s*(=)\s*(?:"([^"]*)"|'([^']*)')/   //检查动态属性 v-bind:[class] = '{}'
 const textData = /(?:\{\{([\w\s]*)\}\})/  //匹配文本加动态文本
-const forMatch = /\(([a-z]*\,[a-z]*)\)\s*in\s*([a-z]*)/;
+const forMatch = /\(([a-z]*\,[a-z]*)\)\s*in\s*([a-z]*)/
+const dirRe = /^v-|^:|^@/
+const modifierRE = /\.[^.\]]+(?=[^\]]*$)/g
+const bindRe = /v-bind:|:/
+const onRe = /^v-on:|^@/
+const dynamicArgRE = /^\[.*\]$/
+const camelize = /-(\w)/g
+const argRE = /:(.*)$/
 
-var html = '<div class="cla1" key="key1" v-for="(item,index) in arr"><p ref="ref1" v-if="true">efwe{{word}}</p></div>';
+
+
+var html = '<div class="cla1" key="key1" v-for="(item,index) in arr"><p ref="refp" v-bind:[class]="bindClass" @click.prevent="handlep" v-if="true">efwe{{word}}</p><componentFirst :value="data" @select="change" ></componentFirst></div>';
 
 
 
@@ -46,14 +59,14 @@ var html = '<div class="cla1" key="key1" v-for="(item,index) in arr"><p ref="ref
      const element = {
        tag:match[1],
        type:1,
-       attrs:[],
+       attrsList:[],
        children:[]
      }
      advance(match[0].length)
      let end,attr
      while (!(end =  html.match(startTagClose)) &&(attr = html.match(attribute) || html.match(activeAttr))){
        advance(attr[0].length)
-       element.attrs.push({name:attr[1],value:attr[3]})
+       element.attrsList.push({name:attr[1],value:attr[3]})
      }
      //处理标签内的属性
      process(element);
@@ -98,20 +111,118 @@ var html = '<div class="cla1" key="key1" v-for="(item,index) in arr"><p ref="ref
      }
       currentParent.children.push(child)
    }
+   //处理过滤器
+
+ function parseFilters (exp) {
+   const validDivisionCharRE = /[\w).+\-_$\]]/
+   function wrapFilter (exp, filter) {
+     const i = filter.indexOf('(')
+     if (i < 0) {
+       // _f: resolveFilter
+       return `_f("${filter}")(${exp})`
+     } else {
+       const name = filter.slice(0, i)
+       const args = filter.slice(i + 1)
+       return `_f("${name}")(${exp}${args !== ')' ? ',' + args : args}`
+     }
+   }
+     let inSingle = false
+     let inDouble = false
+     let inTemplateString = false
+     let inRegex = false
+     let curly = 0
+     let square = 0
+     let paren = 0
+     let lastFilterIndex = 0
+     let c, prev, i, expression, filters
+
+     for (i = 0; i < exp.length; i++) {
+       prev = c
+       c = exp.charCodeAt(i)
+       if (inSingle) {
+         if (c === 0x27 && prev !== 0x5C) inSingle = false   //  反斜杠\
+       } else if (inDouble) {
+         if (c === 0x22 && prev !== 0x5C) inDouble = false
+       } else if (inTemplateString) {
+         if (c === 0x60 && prev !== 0x5C) inTemplateString = false
+       } else if (inRegex) {
+         if (c === 0x2f && prev !== 0x5C) inRegex = false
+       } else if (
+         c === 0x7C && // |
+         exp.charCodeAt(i + 1) !== 0x7C &&
+         exp.charCodeAt(i - 1) !== 0x7C &&
+         !curly && !square && !paren
+       ) {
+         if (expression === undefined) {
+           // first filter, end of expression
+           lastFilterIndex = i + 1
+           expression = exp.slice(0, i).trim()
+         } else {
+           pushFilter()
+         }
+       } else {
+         switch (c) {
+           case 0x22: inDouble = true; break         // "
+           case 0x27: inSingle = true; break         // '
+           case 0x60: inTemplateString = true; break // `
+           case 0x28: paren++; break                 // (
+           case 0x29: paren--; break                 // )
+           case 0x5B: square++; break                // [
+           case 0x5D: square--; break                // ]
+           case 0x7B: curly++; break                 // {
+           case 0x7D: curly--; break                 // }
+         }
+         if (c === 0x2f) { // /
+           let j = i - 1
+           let p
+           // find first non-whitespace prev char
+           for (; j >= 0; j--) {
+             p = exp.charAt(j)
+             if (p !== ' ') break
+           }
+           if (!p || !validDivisionCharRE.test(p)) {
+             inRegex = true
+           }
+         }
+       }
+     }
+
+     if (expression === undefined) {
+       expression = exp.slice(0, i).trim()
+     } else if (lastFilterIndex !== 0) {
+       pushFilter()
+     }
+
+     function pushFilter () {
+       (filters || (filters = [])).push(exp.slice(lastFilterIndex, i).trim())
+       lastFilterIndex = i + 1
+     }
+
+     if (filters) {
+       for (i = 0; i < filters.length; i++) {
+         expression = wrapFilter(expression, filters[i])
+       }
+     }
+
+     return expression
+   }
+
+
    //处理标签内的属性
    function process(el){
      //处理for属性
-     processFor(el);  
+     processFor(el);
      processIf(el);
      processOnce(el);
      processElement(el);
    }
    function getAndRemoveAttr(el,name){
     let exp ;
-    for(let i=0,len=el.attrs.length;i<len;i++){
-      if(el.attrs[i].name===name){
-        exp = el.attrs[i].value
-        el.attrs.splice(i,1)
+    for(let i=0,len=el.attrsList.length;i<len;i++){
+      if(el.attrsList[i].name===name){
+        exp = el.attrsList[i].value
+        el.attrsList.splice(i,1)
+        return exp
       }
     }
     return exp
@@ -135,7 +246,7 @@ var html = '<div class="cla1" key="key1" v-for="(item,index) in arr"><p ref="ref
      }
    }
    //处理if / else / elseif标签
-  function processIf(el){
+  function processIf(el){debugger
     let exp = getAndRemoveAttr(el,'v-if')
     if(exp){
         el.if = exp;
@@ -154,10 +265,71 @@ var html = '<div class="cla1" key="key1" v-for="(item,index) in arr"><p ref="ref
   //处理once标签
   function processOnce(el){
     let once = getAndRemoveAttr(el,'v-once')
-    if(once!==null){
+    if(once!=null){
         el.once = true;
-      } 
+      }
     }
+    //添加事件
+   function addHandler(el, name, value, modifiers, important,  isDynamic) {
+     modifiers = modifiers || {}
+     if(modifiers.prevent &&modifiers.passive){
+       console.log('---warn---(prevent,passive)不能同时存在')
+     }
+     if(modifiers.right){
+       if(isDynamic){
+         name = `(${name})==='click'?'contextmenu':(${name})`
+       }else if(name === 'click'){
+         name = 'contextmenu'
+         delete modifiers.right
+       }
+     }else if(modifiers.middle){
+       if(isDynamic){
+         name = `(${name})==='click'?'mouseup':(${name})`
+       }else if(name === 'click'){
+         name = 'mouseup'
+       }
+     }
+
+     // check capture modifier
+     if (modifiers.capture) {
+       delete modifiers.capture
+       name = prependModifierMarker('!', name, isDynamic)
+     }
+     if (modifiers.once) {
+       delete modifiers.once
+       name = prependModifierMarker('~', name, isDynamic)
+     }
+     /* istanbul ignore if */
+     if (modifiers.passive) {
+       delete modifiers.passive
+       name = prependModifierMarker('&', name, isDynamic)
+     }
+     let events
+     if (modifiers.native) {
+       delete modifiers.native
+       events = el.nativeEvents || (el.nativeEvents = {})
+     } else {
+       events = el.events || (el.events = {})
+     }
+     const newHandler ={
+       value,
+       modifiers
+     }
+     const handlers = events[name]
+     if (Array.isArray(handlers)) {
+       important ? handlers.unshift(newHandler) : handlers.push(newHandler)
+     } else if (handlers) {
+       events[name] = important ? [newHandler, handlers] : [handlers, newHandler]
+     } else {
+       events[name] = newHandler
+     }
+     el.plain = false
+
+   }
+   function prependModifierMarker(symbol,name,isDynamic) {
+     return isDynamic ? `_p(${name},"${symbol}")` :symbol+name
+
+   }
 //处理剩余属性
   function processElement(el){
     processKey(el);
@@ -171,6 +343,13 @@ var html = '<div class="cla1" key="key1" v-for="(item,index) in arr"><p ref="ref
   // )
 
     processRef(el);
+    //处理插槽 <template slot="xxx">(2.5已被废除), <div slot-scope="xxx">
+    processSlotContent(el);
+    //处理<slot/>
+    processSlotOutlet(el);
+    processComponent(el);
+    // <div :custom-prop="someVal" @custom-event="handleEvent" other-prop="static-prop"></div>
+    processAttrs(el);
 
   }
   function processKey(el){
@@ -186,6 +365,159 @@ var html = '<div class="cla1" key="key1" v-for="(item,index) in arr"><p ref="ref
       el.refInFor = checkInFor(el);//与$ref有关
     }
   }
+  function processSlotContent(el) {//slot不能用在v-for属性中（暂不提示）
+       el.slotScope =  getAndRemoveAttr(el, 'slot-scope')
+  }
+  function processSlotOutlet(el) {
+    if(el.tag === 'slot'){
+      el.slotName = getBindingAttr(el, 'name')
+    }
+  }
+  function processComponent(el) {
+    let binding
+    if((binding = getBindingAttr(el,'is'))){
+      el.component = binding
+    }
+  }
+  function genAssignmentCode(value,assignment) {
+     const res = parseModel(value)
+    if(res.key === null){
+      return `${value}=${assignment}`
+    }else{
+      `$set(${res.exp},${res.key},${assignment})`
+    }
+  }
+  function parseModel(val) {
+    val = val.trim()
+    let len = val.length
+
+    if (val.indexOf('[') < 0 || val.lastIndexOf(']') < len - 1) {
+      let index = val.lastIndexOf('.')
+      if (index > -1) {
+        return {
+          exp: val.slice(0, index),
+          key: '"' + val.slice(index + 1) + '"'
+        }
+      } else {
+        return {
+          exp: val,
+          key: null
+        }
+      }
+    }
+  }
+  function processAttrs(el) {//处理    // <div :custom-prop="someVal" @custom-event="handleEvent" other-prop="static-prop"></div>
+    let list = el.attrsList,
+          i, l, name, rawName, value, modifiers, syncGen, isDynamic;
+    for(i=0,l=list.length;i<l;i++){
+      name = rawName = list[i].name
+      value = list[i].value
+      if(dirRe.test(name)){//   /^v-|^@|^:/  查询绑定属性
+        el.hasBindings = true
+        modifiers = parseModifiers(name.replace(dirRe, '')) //  {prop:true,camel:true,sync:true}
+        name = name.replace(modifierRE,'')
+        if(bindRe.test(name)){//  v-bind
+          name = name.replace(bindRe,'')
+          value = parseFilters(value)
+          isDynamic = dynamicArgRE.test(name) //v-bind:[key]
+          if (isDynamic) {
+            name = name.slice(1, -1)  // key
+          }
+          if(modifiers){
+            if(modifiers.prop && !isDynamic){
+              name = name.replace(camelize,(a,c)=>c.toUpperCase())
+              if(name === 'innerHtml'){
+                name = 'innerHTML'
+              }
+            }
+            if(modifiers.camel && !isDynamic){
+              name = name.replace(camelize,(a,c)=>c.toUpperCase())
+
+            }
+            if(modifiers.sync){
+              syncGen = genAssignmentCode(value, `$event`)
+              if (!isDynamic) {
+                addHandler(
+                  el,
+                  `update:${camelize(name)}`,
+                  syncGen,
+                  null,
+                  false,
+                  false
+                )
+              } else {
+                // handler w/ dynamic event name
+                addHandler(
+                  el,
+                  `"update:"+(${name})`,
+                  syncGen,
+                  null,
+                  false,
+                  true // dynamic
+                )
+              }
+
+
+            }
+          }
+        }else if(onRe.test(name)){
+            name = name.replace(onRe,'')
+            isDynamic = dynamicArgRE.test(name) //v-bind:[key]
+            if (isDynamic) {
+              name = name.slice(1, -1)  // key
+            }
+            addHandler(el, name, value, modifiers, false,  isDynamic)
+          }else{//其他指令 v-model v-html v-text v-show v-cloak 或者自定义指令
+            name = name.replace(dirRe,'')
+            const argMatch = name.match(argRE)
+            let arg = argMatch && argMatch[1]
+            isDynamic = false
+            if (arg) {
+              name = name.slice(0, -(arg.length + 1))
+              if (dynamicArgRE.test(arg)) {
+                arg = arg.slice(1, -1)
+                isDynamic = true
+              }
+            }
+          addDirective(el, name, rawName, value, arg, isDynamic, modifiers)
+
+        }
+      }else{
+        addAttr(el, name, JSON.stringify(value), isDynamic)
+
+      }
+
+    }
+
+  }
+  //添加非指令属性
+   function addAttr(el, name, value, isDynamic) {
+     const attrsList = isDynamic
+       ? (el.dynamicAttrs || (el.dynamicAttrs = []))
+       : (el.attrsList || (el.attrsList = []))
+     attrsList.push({ name, value, isDynamic })
+     el.plain = false
+   }
+
+  //设置指令集
+  function addDirective(el, name, rawName, value, arg, isDynamic, modifiers) {
+     (el.directives || (el.directives = [])).push({
+       name,
+       rawName,
+       value,
+       arg,
+       isDynamic,
+       modifiers
+     })
+  }
+  function parseModifiers(name){debugger
+     const match = name.match(modifierRE)
+     if (match) {
+       const ret = {}
+       match.forEach(m => { ret[m.slice(1)] = true })
+       return ret
+     }
+   }
   function  checkInFor(el){
     let parent = el;
     while(parent){
@@ -249,7 +581,6 @@ var html = '<div class="cla1" key="key1" v-for="(item,index) in arr"><p ref="ref
 
     }
   }
-  debugger
   console.log(currentParent,stack)
   return stack[0]
 }
@@ -260,14 +591,14 @@ let ast = parse(html)
 generator(ast[0])
 
 //生成code
-function generator(ast){debugger
+function generator(ast){
   const code = ast ? genElement(ast) : '_c("div")'
   return {
     render: `with(this){return ${code}}`,
     //staticRenderFns: state.staticRenderFns
   }
 }
-function genElement(el){debugger
+function genElement(el){
   if (el.for && !el.forProcessed) {
     return genFor(el)
   } else if (el.if && !el.ifProcessed) {
