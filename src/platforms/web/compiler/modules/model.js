@@ -35,7 +35,7 @@ function preTransformNode (el: ASTElement, options: CompilerOptions) {
       typeBinding = getBindingAttr(el, 'type')
     }
     if (!map.type && !typeBinding && map['v-bind']) {
-      typeBinding = `(${map['v-bind']}).type`
+      typeBinding = `(${map['v-bind']}).type`  //v-bind={type:type1}
     }
 
     if (typeBinding) {

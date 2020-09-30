@@ -3,13 +3,13 @@
 const validDivisionCharRE = /[\w).+\-_$\]]/
 
 export function parseFilters (exp: string): string {
-  let inSingle = false
-  let inDouble = false
-  let inTemplateString = false
-  let inRegex = false
-  let curly = 0
-  let square = 0
-  let paren = 0
+  let inSingle = false               // '
+  let inDouble = false               // "
+  let inTemplateString = false       // `
+  let inRegex = false                // /
+  let curly = 0                      // 大括号计数 {
+  let square = 0                     // 中括号 [ 计数
+  let paren = 0                      // 括号 ( 计数
   let lastFilterIndex = 0
   let c, prev, i, expression, filters
 
@@ -17,39 +17,39 @@ export function parseFilters (exp: string): string {
     prev = c
     c = exp.charCodeAt(i)
     if (inSingle) {
-      if (c === 0x27 && prev !== 0x5C) inSingle = false   //  反斜杠\
+      if (c === 0x27 && prev !== 0x5C) inSingle = false   //   '  反斜杠\
     } else if (inDouble) {
-      if (c === 0x22 && prev !== 0x5C) inDouble = false
+      if (c === 0x22 && prev !== 0x5C) inDouble = false   //   "  反斜杠\
     } else if (inTemplateString) {
-      if (c === 0x60 && prev !== 0x5C) inTemplateString = false
+      if (c === 0x60 && prev !== 0x5C) inTemplateString = false //   `  反斜杠\
     } else if (inRegex) {
-      if (c === 0x2f && prev !== 0x5C) inRegex = false
+      if (c === 0x2f && prev !== 0x5C) inRegex = false          //   /  反斜杠\
     } else if (
-      c === 0x7C && // |
-      exp.charCodeAt(i + 1) !== 0x7C &&
-      exp.charCodeAt(i - 1) !== 0x7C &&
-      !curly && !square && !paren
+      c === 0x7C &&                                        //   |
+      exp.charCodeAt(i + 1) !== 0x7C &&                    //  非或 ||
+      exp.charCodeAt(i - 1) !== 0x7C &&                    //  非或 ||
+      !curly && !square && !paren                          // 当前字符串不在 [] / () / {} 内
     ) {
       if (expression === undefined) {
         // first filter, end of expression
-        lastFilterIndex = i + 1
-        expression = exp.slice(0, i).trim()
+        lastFilterIndex = i + 1                            //  过滤器开始的位置
+        expression = exp.slice(0, i).trim()                //  表达式
       } else {
-        pushFilter()
+        pushFilter()                                       //  保存过滤器
       }
     } else {
       switch (c) {
-        case 0x22: inDouble = true; break         // "
-        case 0x27: inSingle = true; break         // '
-        case 0x60: inTemplateString = true; break // `
-        case 0x28: paren++; break                 // (
-        case 0x29: paren--; break                 // )
-        case 0x5B: square++; break                // [
-        case 0x5D: square--; break                // ]
-        case 0x7B: curly++; break                 // {
-        case 0x7D: curly--; break                 // }
+        case 0x22: inDouble = true; break                   // "
+        case 0x27: inSingle = true; break                   // '
+        case 0x60: inTemplateString = true; break           // `
+        case 0x28: paren++; break                           // (
+        case 0x29: paren--; break                           // )
+        case 0x5B: square++; break                          // [
+        case 0x5D: square--; break                          // ]
+        case 0x7B: curly++; break                           // {
+        case 0x7D: curly--; break                           // }
       }
-      if (c === 0x2f) { // /
+      if (c === 0x2f) {                                     // /
         let j = i - 1
         let p
         // find first non-whitespace prev char
@@ -57,7 +57,7 @@ export function parseFilters (exp: string): string {
           p = exp.charAt(j)
           if (p !== ' ') break
         }
-        if (!p || !validDivisionCharRE.test(p)) {
+        if (!p || !validDivisionCharRE.test(p)) {         //    /[\w).+\-_$\]]/
           inRegex = true
         }
       }

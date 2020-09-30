@@ -611,8 +611,7 @@ var html = '<div class="cla1" key="key1" v-for="(item,index) in arr">' +
 let ast = parse(html)
 
 let render = generator(ast)
-let renderFun = new Function(render.render)
-console.log(render, renderFun)
+console.log(render)
 
 //生成code
 function generator(ast){
@@ -622,7 +621,7 @@ function generator(ast){
     //staticRenderFns: state.staticRenderFns
   }
 }
-function genElement(el){
+function genElement(el){debugger
   if (el.for && !el.forProcessed) {
     return genFor(el)
   } else if (el.if && !el.ifProcessed) {
@@ -656,7 +655,7 @@ let data = '{'
   return data
 }
 //处理有for属性的标签
-function genFor(el){
+function genFor(el){debugger
   const exp = el.for
   const alias = el.alias
   const iterator1 = el.iterator1 ? `,${el.iterator1}` : ''

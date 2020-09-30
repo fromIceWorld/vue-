@@ -107,7 +107,7 @@ export default class Watcher {
     let value
     const vm = this.vm
     try {
-      value = this.getter.call(vm, vm)   //computed函数
+      value = this.getter.call(vm, vm)
     } catch (e) {
       if (this.user) {
         handleError(e, vm, `getter for watcher "${this.expression}"`)
@@ -136,13 +136,14 @@ export default class Watcher {
       this.newDepIds.add(id)
       this.newDeps.push(dep)
       if (!this.depIds.has(id)) {
-        dep.addSub(this)            
+        dep.addSub(this)
       }
     }
   }
 
   /**
    * Clean up for dependency collection.
+   * 清理依赖项集合。
    */
   cleanupDeps () {
     let i = this.deps.length
@@ -251,3 +252,38 @@ export default class Watcher {
     }
   }
 }
+
+// 初始化挂载阶段
+/*
+
+let updateComponent = () => {
+      vm._update(vm._render(), hydrating)
+    }
+
+传入的值：vm, updateComponent, noop, {before}, true
+
+vm._watcher = this[watch]
+watch.vm = vm
+watch.before = before
+watch.cb = updateComp
+
+onent
+watch.deps = []
+watch.newDeps = []
+watch.depsIds = new Set()
+watch.newDeps = new Set()
+watch.expression = updateComponent.toString()
+watch.getter = updateComponent
+watch.value = this.get()
+
+function get(){
+// pushTarget(this)
+let value = this.getter.call(vm, vm)
+
+}
+
+
+
+
+
+ */

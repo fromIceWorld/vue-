@@ -28,8 +28,6 @@ Vue.prototype.$mount = function (
   hydrating?: boolean
 ): Component {
   el = el && query(el)
-
-
 /*********************************
 * 禁止挂载到body html 根节点
 * ********************************/
@@ -61,7 +59,7 @@ Vue.prototype.$mount = function (
             )
           }
         }
-      } else if (template.nodeType) {
+      } else if (template.nodeType) {  //标签   //template是dom
         template = template.innerHTML
       } else {
         if (process.env.NODE_ENV !== 'production') {
@@ -80,12 +78,11 @@ Vue.prototype.$mount = function (
 
       /******************************************
       *
-      *
       * compileToFunctions将template 转换成 render
       *
       * ******************************************/
 
-      
+
 
       const { render, staticRenderFns } = compileToFunctions(template, {
         outputSourceRange: process.env.NODE_ENV !== 'production',
@@ -94,10 +91,10 @@ Vue.prototype.$mount = function (
         delimiters: options.delimiters,
         comments: options.comments
       }, this)
-      
-      
-      
-      
+
+
+
+
       options.render = render
       options.staticRenderFns = staticRenderFns
 

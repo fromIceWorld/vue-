@@ -30,7 +30,7 @@ export default class Dep {
 
   depend () {
     if (Dep.target) {
-      Dep.target.addDep(this)     watcher.addDep()
+      Dep.target.addDep(this)    // watcher.addDep()
     }
   }
 
@@ -49,6 +49,7 @@ export default class Dep {
   }
 }
 
+// The current target watcher being evaluated.
 // The current target watcher being evaluated.
 // This is globally unique because only one watcher
 // can be evaluated at a time.

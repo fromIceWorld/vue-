@@ -2,15 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb120562-a2e0-4e25-8f52-6209d32b4c0a" name="默认" comment="">
+      <change afterPath="$PROJECT_DIR$/解析/compiler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/解析/new Vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/解析/observer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/解析/辅助函数.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/解析/遗留问题.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/compiler.js" beforeDir="false" afterPath="$PROJECT_DIR$/compiler.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/moni.js" beforeDir="false" afterPath="$PROJECT_DIR$/moni.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/compiler/codegen/events.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/compiler/codegen/events.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/compiler/directives/model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/compiler/directives/model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/compiler/helpers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/compiler/helpers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/compiler/parser/filter-parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/compiler/parser/filter-parser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/compiler/parser/html-parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/compiler/parser/html-parser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/util/options.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/util/options.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue_source.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue_source.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/解析/流程.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/解析/流程解析.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/compiler/parser/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/compiler/parser/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/compiler/parser/text-parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/compiler/parser/text-parser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/instance/render.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/instance/render.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/observer/dep.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/observer/dep.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/observer/scheduler.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/observer/scheduler.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/observer/traverse.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/observer/traverse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/observer/watcher.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/observer/watcher.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/platforms/web/compiler/modules/model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/platforms/web/compiler/modules/model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/platforms/web/entry-runtime-with-compiler.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/platforms/web/entry-runtime-with-compiler.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/platforms/web/runtime/patch.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/platforms/web/runtime/patch.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -26,131 +39,203 @@
     <favorites_list name="vue-source" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/instance/init.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
-              <caret line="112" column="12" lean-forward="true" selection-start-line="112" selection-start-column="12" selection-end-line="112" selection-end-column="12" />
-              <folding>
-                <element signature="e#13#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/instance/state.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="766">
-              <caret line="153" column="14" selection-start-line="153" selection-start-column="10" selection-end-line="153" selection-end-column="14" />
-              <folding>
-                <element signature="e#13#43#0" expanded="true" />
-                <element signature="n#!!block;n#createGetterInvoker#0" />
-                <element signature="e#9926#10448#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/core/observer/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="199" column="3" lean-forward="true" selection-start-line="199" selection-start-column="3" selection-end-line="199" selection-end-column="3" />
-              <folding>
-                <element signature="e#3695#3971#0" />
-                <element signature="e#4015#4603#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/util/env.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="3" column="21" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="21" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/core/util/lang.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="20" column="67" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="67" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/moni.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-100">
-              <caret line="5" column="29" lean-forward="true" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5316122">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/dist/vue.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="172">
+                  <caret line="6153" column="87" lean-forward="true" selection-start-line="6153" selection-start-column="87" selection-end-line="6153" selection-end-column="87" />
+                  <folding>
+                    <element signature="n#!!doc" expanded="true" />
+                    <element signature="e#25694#25723#0" />
+                    <element signature="e#30393#31093#0" />
+                    <element signature="e#85059#85171#0" />
+                    <element signature="e#85245#85760#0" />
+                    <element signature="e#87742#87859#0" />
+                    <element signature="e#103017#103196#0" />
+                    <element signature="e#103245#103983#0" />
+                    <element signature="e#104029#105021#0" />
+                    <element signature="e#107137#108301#0" />
+                    <element signature="e#108471#109056#0" />
+                    <element signature="e#109188#109680#0" />
+                    <element signature="e#109226#109673#0" />
+                    <element signature="e#134300#134842#0" />
+                    <element signature="e#158515#158787#0" />
+                    <element signature="e#159431#159521#0" />
+                    <element signature="e#159569#159749#0" />
+                    <element signature="e#159780#159976#0" />
+                    <element signature="e#160024#160387#0" />
+                    <element signature="e#160617#161007#0" />
+                    <element signature="e#161148#161172#0" />
+                    <element signature="e#161299#161725#0" />
+                    <element signature="e#164125#164976#0" />
+                    <element signature="e#165961#166278#0" />
+                    <element signature="e#167900#168217#0" />
+                    <element signature="e#168270#169144#0" />
+                    <element signature="e#172794#173230#0" />
+                    <element signature="e#173284#173424#0" />
+                    <element signature="e#180543#184443#0" />
+                    <element signature="e#186669#187117#0" />
+                    <element signature="e#272447#274415#0" />
+                    <element signature="e#287874#290648#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/core/instance/lifecycle.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="271">
+                  <caret line="196" column="27" selection-start-line="196" selection-start-column="20" selection-end-line="196" selection-end-column="27" />
+                  <folding>
+                    <element signature="n#!!doc" expanded="true" />
+                    <element signature="e#13#43#0" expanded="true" />
+                    <element signature="e#2595#2687#0" />
+                    <element signature="e#2728#3810#0" />
+                    <element signature="e#3958#4604#0" />
+                    <element signature="e#4760#5199#0" />
+                    <element signature="n#!!block;n#updateChildComponent#0" />
+                    <element signature="n#!!block;n#isInInactiveTree#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/core/observer/watcher.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="568">
+                  <caret line="109" column="25" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="25" />
+                  <folding>
+                    <element signature="e#13#124#0" expanded="true" />
+                    <element signature="e#3767#3937#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/dist/vue.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="658">
+                  <caret line="5955" column="45" lean-forward="true" selection-start-line="5949" selection-start-column="9" selection-end-line="5955" selection-end-column="45" />
+                  <folding>
+                    <element signature="n#!!doc" expanded="true" />
+                    <element signature="e#25694#25723#0" />
+                    <element signature="e#30393#31093#0" />
+                    <element signature="e#85059#85171#0" />
+                    <element signature="e#85245#85760#0" />
+                    <element signature="e#103017#103196#0" />
+                    <element signature="e#103245#103983#0" />
+                    <element signature="e#104029#105021#0" />
+                    <element signature="e#107137#108301#0" />
+                    <element signature="e#108418#109062#0" />
+                    <element signature="e#109188#109680#0" />
+                    <element signature="e#134300#134842#0" />
+                    <element signature="e#154867#155198#0" />
+                    <element signature="e#155358#155404#0" />
+                    <element signature="e#155438#155483#0" />
+                    <element signature="e#155643#155677#0" />
+                    <element signature="e#155716#155750#0" />
+                    <element signature="e#155781#155813#0" />
+                    <element signature="e#155906#155935#0" />
+                    <element signature="e#155976#156010#0" />
+                    <element signature="e#156053#156094#0" />
+                    <element signature="e#159431#159521#0" />
+                    <element signature="e#159569#159749#0" />
+                    <element signature="e#164125#164976#0" />
+                    <element signature="e#165961#166278#0" />
+                    <element signature="e#167900#168217#0" />
+                    <element signature="e#168270#169144#0" />
+                    <element signature="e#172794#173230#0" />
+                    <element signature="e#173854#174058#0" />
+                    <element signature="e#190765#191425#0" />
+                    <element signature="e#287874#290648#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>exten</find>
-      <find>initExtend</find>
-      <find>isReservedTag</find>
-      <find>isUnknownElement</find>
-      <find>compileToFunctions</find>
-      <find>mustUseProp</find>
-      <find>checkComponents</find>
-      <find>normalizeProps</find>
-      <find>val</find>
-      <find>normalizeDirectives</find>
-      <find>mergeAssets</find>
-      <find>assertObjectType</find>
-      <find>model</find>
-      <find>extend</find>
-      <find>mergeHook</find>
-      <find>watch</find>
-      <find>strats</find>
-      <find>defaultStrat</find>
-      <find>normalizeInject</find>
-      <find>mergeDataOrFn</find>
-      <find>initProxy</find>
-      <find>mergeData</find>
-      <find>info</find>
-      <find>toggleObserving</find>
-      <find>def</find>
-      <find>validateProp</find>
-      <find>hasProto</find>
-      <find>Observer</find>
-      <find>initProps</find>
-      <find>defineReactive</find>
+      <find>initLifecycle</find>
+      <find>initEvents</find>
+      <find>$mount</find>
+      <find>mountComponent</find>
+      <find>genClassForVnode</find>
+      <find>klass</find>
+      <find>$moun</find>
+      <find>_update</find>
+      <find>._update</find>
+      <find>_render</find>
+      <find>_render =</find>
+      <find>__patch__</find>
+      <find>createPatchFunction</find>
+      <find>baseModules</find>
+      <find>updateAttrs</find>
+      <find>attrs</find>
+      <find>events</find>
+      <find>ref =</find>
+      <find>invokeWithErrorHandling</find>
+      <find>mergeVNodeHook</find>
+      <find>nodeop</find>
+      <find>nodeOps</find>
+      <find>directives</find>
+      <find>directives =</find>
+      <find>cbs</find>
+      <find>invoke</find>
+      <find>vue.ex</find>
+      <find>updateChildren</find>
+      <find>patchVnode</find>
+      <find>addVnodes</find>
     </findStrings>
     <replaceStrings>
       <replace>advanceFun</replace>
       <replace>camelize</replace>
       <replace>attrsList</replace>
       <replace>Vue.prototype</replace>
+      <replace>ob</replace>
+      <replace>fulfilled</replace>
+      <replace>rejected</replace>
+      <replace>pending</replace>
+      <replace>self</replace>
+      <replace>onFulfilled</replace>
+      <replace>onRejected</replace>
+      <replace>promise2</replace>
+      <replace>used</replace>
+      <replace>PENDING</replace>
+      <replace>FULFILLED</replace>
+      <replace>REJECTED</replace>
+      <replace>'pending'</replace>
+      <replace>'fulfilled'</replace>
+      <replace>fun</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\Users\Administrator\Desktop\vue-\src\core</dir>
       <dir>C:\Users\Administrator\Desktop\vue-\src</dir>
       <dir>C:\Users\Administrator\Desktop\vue-source\src\core</dir>
-      <dir>C:\Users\Administrator\Desktop\vue-source\src</dir>
       <dir>C:\Users\Administrator\Desktop\vue-source\src\compiler</dir>
-      <dir>C:\Users\Administrator\Desktop\vue-source</dir>
       <dir>C:\Users\Administrator\Desktop\vue-source\scripts</dir>
+      <dir>C:\Users\Administrator\Desktop\vue-source</dir>
+      <dir>C:\Users\Administrator\Desktop\vue-source\src</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -159,19 +244,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/core/util/lang.js" />
-        <option value="$PROJECT_DIR$/src/core/observer/index.js" />
-        <option value="$PROJECT_DIR$/../webpack/show.js" />
-        <option value="$PROJECT_DIR$/../webpack/index.html" />
-        <option value="$PROJECT_DIR$/../webpack/main.css" />
-        <option value="$PROJECT_DIR$/../webpack/main.js" />
-        <option value="$PROJECT_DIR$/../webpack/webpack.config.js" />
-        <option value="$PROJECT_DIR$/../webpack/dist/bundle.js" />
-        <option value="$PROJECT_DIR$/src/core/util/next-tick.js" />
         <option value="$PROJECT_DIR$/src/core/global-api/extend.js" />
         <option value="$PROJECT_DIR$/src/core/instance/inject.js" />
-        <option value="$PROJECT_DIR$/src/core/observer/dep.js" />
-        <option value="$PROJECT_DIR$/src/core/observer/watcher.js" />
         <option value="$PROJECT_DIR$/src/core/vdom/create-element.js" />
         <option value="$PROJECT_DIR$/../base/package.json" />
         <option value="$PROJECT_DIR$/../base/config/proxy.js" />
@@ -181,10 +255,7 @@
         <option value="$PROJECT_DIR$/src/shared/util.js" />
         <option value="$PROJECT_DIR$/src/core/instance/events.js" />
         <option value="$PROJECT_DIR$/src/core/global-api/index.js" />
-        <option value="$PROJECT_DIR$/src/core/instance/render.js" />
         <option value="$PROJECT_DIR$/src/core/index.js" />
-        <option value="$PROJECT_DIR$/src/platforms/web/entry-runtime-with-compiler.js" />
-        <option value="$PROJECT_DIR$/src/compiler/parser/index.js" />
         <option value="$PROJECT_DIR$/src/compiler/index.js" />
         <option value="$PROJECT_DIR$/../compiler.js" />
         <option value="$PROJECT_DIR$/src/core/util/error.js" />
@@ -193,17 +264,37 @@
         <option value="$PROJECT_DIR$/解析/流程.js" />
         <option value="$PROJECT_DIR$/src/platforms/web/runtime/index.js" />
         <option value="$PROJECT_DIR$/src/core/instance/proxy.js" />
-        <option value="$PROJECT_DIR$/src/core/instance/lifecycle.js" />
-        <option value="$PROJECT_DIR$/src/compiler/parser/text-parser.js" />
         <option value="$PROJECT_DIR$/src/compiler/parser/html-parser.js" />
         <option value="$PROJECT_DIR$/../authority/package.json" />
-        <option value="$PROJECT_DIR$/src/compiler/parser/filter-parser.js" />
-        <option value="$PROJECT_DIR$/compiler.js" />
         <option value="$PROJECT_DIR$/src/core/instance/render-helpers/index.js" />
-        <option value="$PROJECT_DIR$/src/core/instance/init.js" />
         <option value="$PROJECT_DIR$/src/core/util/options.js" />
-        <option value="$PROJECT_DIR$/vue_source.html" />
+        <option value="$PROJECT_DIR$/src/compiler/directives/model.js" />
+        <option value="$PROJECT_DIR$/src/compiler/helpers.js" />
+        <option value="$PROJECT_DIR$/src/compiler/parser/text-parser.js" />
+        <option value="$PROJECT_DIR$/src/compiler/parser/filter-parser.js" />
+        <option value="$PROJECT_DIR$/src/compiler/parser/index.js" />
+        <option value="$PROJECT_DIR$/src/compiler/codegen/events.js" />
+        <option value="$PROJECT_DIR$/src/platforms/web/runtime/patch.js" />
         <option value="$PROJECT_DIR$/moni.js" />
+        <option value="$PROJECT_DIR$/src/core/instance/lifecycle.js" />
+        <option value="$PROJECT_DIR$/src/platforms/web/entry-runtime-with-compiler.js" />
+        <option value="$PROJECT_DIR$/src/core/instance/render.js" />
+        <option value="$PROJECT_DIR$/src/core/observer/traverse.js" />
+        <option value="$PROJECT_DIR$/解析/observer.js" />
+        <option value="$PROJECT_DIR$/../layout/package.json" />
+        <option value="$PROJECT_DIR$/解析/new Vue.js" />
+        <option value="$PROJECT_DIR$/解析/辅助函数.js" />
+        <option value="$PROJECT_DIR$/src/core/observer/dep.js" />
+        <option value="$PROJECT_DIR$/src/core/observer/watcher.js" />
+        <option value="$PROJECT_DIR$/src/platforms/web/compiler/modules/model.js" />
+        <option value="$PROJECT_DIR$/解析/遗留问题.js" />
+        <option value="$PROJECT_DIR$/src/core/observer/scheduler.js" />
+        <option value="$PROJECT_DIR$/src/core/observer/index.js" />
+        <option value="$PROJECT_DIR$/../js-vue/Promise/myPromise.js" />
+        <option value="$PROJECT_DIR$/vue_source.html" />
+        <option value="$PROJECT_DIR$/compiler.js" />
+        <option value="$PROJECT_DIR$/src/core/instance/init.js" />
+        <option value="$PROJECT_DIR$/dist/vue.js" />
       </list>
     </option>
   </component>
@@ -214,10 +305,10 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1358" />
-    <option name="y" value="-221" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="1686" />
+    <option name="y" value="77" />
+    <option name="width" value="1380" />
+    <option name="height" value="735" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -225,6 +316,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -248,28 +340,35 @@
               <item name="C:\Users\Administrator\Desktop\vue-source" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="core" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="components" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="vue-source" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="C:\Users\Administrator\Desktop\vue-source" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="core" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="instance" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="vue-source" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="C:\Users\Administrator\Desktop\vue-source" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="platforms" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="core" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="observer" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="vue-source" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="C:\Users\Administrator\Desktop\vue-source" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="platforms" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="web" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="core" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="util" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="vue-source" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="C:\Users\Administrator\Desktop\vue-source" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="src" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="platforms" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="web" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="runtime" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="core" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="vdom" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="vue-source" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -286,7 +385,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -301,6 +399,12 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.gutterIcons" />
+    <property name="ts.external.directory.path" value="C:\Users\Administrator\Desktop\vue-source\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\vue-source\解析" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -314,29 +418,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.compiler.js (5)">
-    <configuration name="compiler.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="compiler.js" working-dir="$PROJECT_DIR$">
-      <method v="2" />
-    </configuration>
-    <configuration name="compiler.js (2)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="compiler.js" working-dir="$PROJECT_DIR$">
-      <method v="2" />
-    </configuration>
-    <configuration name="compiler.js (3)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="compiler.js" working-dir="$PROJECT_DIR$">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Node.js.vue.js">
     <configuration name="compiler.js (4)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="compiler.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
     <configuration name="compiler.js (5)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="compiler.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
+    <configuration name="compiler.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="compiler.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="myPromise.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="myPromise.js" working-dir="$PROJECT_DIR$/../js-vue/Promise">
+      <method v="2" />
+    </configuration>
+    <configuration name="vue.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="vue.js" working-dir="$PROJECT_DIR$/dist">
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.vue.js" />
+        <item itemvalue="Node.js.myPromise.js" />
+        <item itemvalue="Node.js.compiler.js" />
         <item itemvalue="Node.js.compiler.js (5)" />
         <item itemvalue="Node.js.compiler.js (4)" />
-        <item itemvalue="Node.js.compiler.js (3)" />
-        <item itemvalue="Node.js.compiler.js (2)" />
-        <item itemvalue="Node.js.compiler.js (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -362,23 +466,35 @@
       <workItem from="1592183760759" duration="61517000" />
       <workItem from="1592789190974" duration="61937000" />
       <workItem from="1593308162834" duration="93004000" />
+      <workItem from="1593999484100" duration="31683000" />
+      <workItem from="1594099711962" duration="111106000" />
+      <workItem from="1595245897181" duration="164599000" />
+      <workItem from="1596440020920" duration="12986000" />
+      <workItem from="1596541827090" duration="30930000" />
+      <workItem from="1597023628664" duration="99411000" />
+      <workItem from="1597714609579" duration="51727000" />
+      <workItem from="1598671677507" duration="636000" />
+      <workItem from="1599615285919" duration="24714000" />
+      <workItem from="1600140491602" duration="51153000" />
+      <workItem from="1600933193016" duration="139000" />
+      <workItem from="1601172105305" duration="54272000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="434296000" />
+    <option name="totallyTimeSpent" value="1067652000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1358" y="-221" width="1936" height="1056" extended-state="6" />
+    <frame x="1358" y="-186" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4978308" visible="true" weight="0.1564805" />
-      <window_info id="Structure" order="1" sideWeight="0.5021692" side_tool="true" weight="0.101685986" />
-      <window_info id="npm" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" sideWeight="0.5021692" side_tool="true" weight="0.14330874" />
+      <window_info id="Structure" order="0" sideWeight="0.5021692" side_tool="true" weight="0.101685986" />
+      <window_info id="npm" order="1" side_tool="true" />
+      <window_info id="Favorites" order="2" sideWeight="0.5021692" side_tool="true" weight="0.14330874" />
+      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.4978308" weight="0.045310855" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.48264644" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3286334" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.40992907" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -386,20 +502,21 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="调试" order="10" />
+      <window_info anchor="bottom" id="调试" order="10" weight="0.329718" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.3286334" />
+      <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4978308" visible="true" weight="0.16807166" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4978308" visible="true" weight="0.22686568" />
       <window_info id="Structure" order="1" sideWeight="0.5021692" side_tool="true" weight="0.101685986" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.5021692" side_tool="true" weight="0.14330874" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.48264644" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3294509" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4589615" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -407,7 +524,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="调试" order="10" />
+      <window_info anchor="bottom" id="调试" order="10" weight="0.329718" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.3286334" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -481,11 +598,6 @@
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/../compiler.js</url>
-          <line>127</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/compiler/parser/index.js</url>
           <line>310</line>
           <option name="timeStamp" value="20" />
@@ -496,11 +608,6 @@
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/compiler/parser/index.js</url>
-          <line>251</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/compiler/parser/html-parser.js</url>
           <line>107</line>
           <option name="timeStamp" value="24" />
@@ -508,142 +615,156 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/compiler/parser/html-parser.js</url>
           <line>254</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="25" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/compiler/parser/html-parser.js</url>
           <line>186</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/compiler/parser/index.js</url>
+          <line>118</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/compiler/parser/index.js</url>
+          <line>878</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/core/vdom/patch.js</url>
+          <line>84</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/core/vdom/patch.js</url>
+          <line>98</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/core/vdom/patch.js</url>
+          <line>340</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/core/vdom/patch.js</url>
+          <line>699</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/core/instance/lifecycle.js</url>
+          <line>177</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/解析/observer.js</url>
+          <line>60</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/解析/observer.js</url>
+          <line>2</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/dist/vue.js</url>
+          <line>10121</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/dist/vue.js</url>
+          <line>9649</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/dist/vue.js</url>
+          <line>10284</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/../js-vue/Promise/myPromise.js</url>
+          <line>88</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/dist/vue.js</url>
+          <line>5900</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/dist/vue.js</url>
+          <line>6046</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/core/vdom/patch.js</url>
+          <line>507</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/dist/vue.js</url>
+          <line>3809</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/dist/vue.js</url>
+          <line>3383</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/dist/vue.js</url>
+          <line>6107</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/dist/vue.js</url>
+          <line>6262</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/dist/vue.js</url>
+          <line>5705</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/dist/vue.js</url>
+          <line>6084</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="51" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/compiler/parser/index.js">
+    <entry file="file://$PROJECT_DIR$/src/core/util/options.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="78" column="21" selection-start-line="78" selection-start-column="16" selection-end-line="78" selection-end-column="21" />
+        <state relative-caret-position="183">
+          <caret line="297" column="26" selection-start-line="297" selection-start-column="26" selection-end-line="297" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/observer/scheduler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="96" column="66" selection-start-line="96" selection-start-column="66" selection-end-line="96" selection-end-column="66" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13#32#0" expanded="true" />
-            <element signature="e#4726#4992#0" />
-            <element signature="e#5898#8349#0" />
-            <element signature="e#8378#8662#0" />
-            <element signature="e#8718#10952#0" />
-            <element signature="e#10993#11452#0" />
-            <element signature="e#12686#13448#0" />
-            <element signature="e#14327#14512#0" />
-            <element signature="e#14586#14919#0" />
-            <element signature="e#14963#15376#0" />
-            <element signature="e#17856#20338#0" />
-            <element signature="e#20373#20821#0" />
-            <element signature="e#22019#22139#0" />
+            <element signature="e#3109#3484#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/compiler/helpers.js">
+    <entry file="file://$PROJECT_DIR$/src/core/instance/state.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/platforms/web/compiler/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        <state relative-caret-position="329">
+          <caret line="153" column="6" lean-forward="true" selection-start-line="153" selection-start-column="6" selection-end-line="153" selection-end-column="6" />
           <folding>
-            <element signature="e#13#52#0" expanded="true" />
+            <element signature="e#13#43#0" expanded="true" />
+            <element signature="e#3649#4193#0" />
+            <element signature="n#!!block;n#createGetterInvoker#0" />
+            <element signature="e#9926#10448#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/compiler/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="74" lean-forward="true" selection-start-line="10" selection-start-column="74" selection-end-line="10" selection-end-column="74" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/compiler/create-compiler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="7" column="65" lean-forward="true" selection-start-line="7" selection-start-column="65" selection-end-line="7" selection-end-column="65" />
-          <folding>
-            <element signature="e#13#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/build.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="35" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" column="26" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/instance/render-helpers/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/util/debug.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="13" column="20" lean-forward="true" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/util/next-tick.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/util/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="24" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="24" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/unit/features/options/components.spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -654,17 +775,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/global-api/extend.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="6" column="45" lean-forward="true" selection-start-line="6" selection-start-column="45" selection-end-line="6" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/core/global-api/use.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="50" lean-forward="true" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
+        <state relative-caret-position="72">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -675,335 +789,462 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/global-api/extend.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-792">
+          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/global-api/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="91" column="13" lean-forward="true" selection-start-line="91" selection-start-column="13" selection-end-line="91" selection-end-column="13" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#13#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/core/global-api/assets.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+        <state relative-caret-position="-72">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
           <folding>
             <element signature="e#13#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/platforms/web/util/element.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="51" column="57" selection-start-line="51" selection-start-column="57" selection-end-line="51" selection-end-column="57" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/platforms/web/entry-runtime-with-compiler.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="112" column="1" lean-forward="true" selection-start-line="112" selection-start-column="1" selection-end-line="112" selection-end-column="1" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13#45#0" expanded="true" />
-            <element signature="e#649#2919#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="10" column="22" lean-forward="true" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13#67#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/global-api/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="25" lean-forward="true" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/platforms/web/runtime/components/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="17" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="5" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/platforms/web/util/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="21" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="21" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/platforms/web/util/attrs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/util/perf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="15" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/instance/index.js">
+    <entry file="file://$PROJECT_DIR$/src/core/instance/render-helpers/render-list.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="31" selection-start-column="31" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="13" selection-start-line="7" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="12" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/shared/util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="231" column="22" selection-start-line="231" selection-start-column="16" selection-end-line="231" selection-end-column="22" />
+          <caret column="11" lean-forward="true" selection-start-column="11" selection-end-column="11" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/platforms/web/runtime/directives/index.js">
+    <entry file="file://$PROJECT_DIR$/src/core/instance/render-helpers/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+          <folding>
+            <element signature="e#13#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/platforms/web/entry-runtime.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="23" lean-forward="true" selection-start-column="23" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/platforms/web/runtime/directives/show.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/platforms/web/runtime/directives/model.js">
+    <entry file="file://$PROJECT_DIR$/src/core/vdom/helpers/normalize-children.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="22" column="43" lean-forward="true" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
-          <folding>
-            <element signature="e#103#153#0" expanded="true" />
-            <element signature="e#1757#2656#0" />
-            <element signature="n#!!block;n#setSelected#0" />
-            <element signature="n#!!block;n#actuallySetSelected#0" />
-            <element signature="n#!!block;n#hasNoMatchingOption#0" />
-            <element signature="n#!!block;n#getValue#0" />
-            <element signature="n#!!block;n#onCompositionStart#0" />
-            <element signature="n#!!block;n#onCompositionEnd#0" />
-            <element signature="n#!!block;n#trigger#0" />
-          </folding>
+        <state relative-caret-position="173">
+          <caret line="30" column="33" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/platforms/web/runtime/index.js">
+    <entry file="file://$PROJECT_DIR$/src/core/vdom/create-component.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="31" column="49" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="49" />
-          <folding>
-            <element signature="e#13#41#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="209">
+          <caret line="146" column="13" selection-start-line="146" selection-start-column="9" selection-end-line="146" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/instance/proxy.js">
+    <entry file="file://$PROJECT_DIR$/src/platforms/web/runtime/class-util.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="68" column="23" lean-forward="true" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/instance/events.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="46" column="3" lean-forward="true" selection-start-line="46" selection-start-column="3" selection-end-line="46" selection-end-column="3" />
+        <state>
           <folding>
-            <element signature="e#13#124#0" expanded="true" />
-            <element signature="n#!!block;n#createOnceHandler#0" />
-            <element signature="e#1213#1655#0" />
-            <element signature="e#1731#1900#0" />
-            <element signature="e#1993#2661#0" />
-            <element signature="e#2723#3682#0" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/instance/render.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="22" column="54" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="54" />
+        <state relative-caret-position="1638">
+          <caret line="105" column="41" selection-start-line="105" selection-start-column="29" selection-end-line="105" selection-end-column="41" />
           <folding>
             <element signature="e#13#111#0" expanded="true" />
-            <element signature="e#2902#4950#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/util/error.js">
+    <entry file="file://$PROJECT_DIR$/src/platforms/web/entry-runtime-with-compiler.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="45" column="7" lean-forward="true" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
+        <state relative-caret-position="1422">
+          <caret line="86" column="37" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="37" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+            <element signature="e#13#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/platforms/web/runtime/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="9" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/vdom/create-element.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1746">
+          <caret line="115" column="34" selection-start-line="115" selection-start-column="30" selection-end-line="115" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../js-vue/Promise/myPromise.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="77" column="23" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/解析/new Vue.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="25" column="19" selection-start-line="25" selection-end-line="25" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue_source.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-162" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/compiler/parser/html-parser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10">
+          <caret line="211" column="35" lean-forward="true" selection-start-line="211" selection-start-column="35" selection-end-line="211" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/compiler/parser/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="203" column="9" selection-start-line="203" selection-start-column="9" selection-end-line="203" selection-end-column="9" />
+          <folding>
+            <element signature="e#13#32#0" expanded="true" />
+            <element signature="e#2772#4687#0" />
+            <element signature="e#8378#8662#0" />
+            <element signature="e#8718#10952#0" />
+            <element signature="e#8746#9199#0" />
+            <element signature="e#16472#16811#0" />
+            <element signature="e#17044#17319#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="906" column="14" selection-start-line="906" selection-start-column="14" selection-end-line="906" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compiler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="224" column="42" selection-start-line="224" selection-start-column="42" selection-end-line="224" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/解析/遗留问题.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/compiler/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#13#51#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/util/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/vdom/helpers/update-listeners.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="52" column="31" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="31" />
+          <folding>
+            <element signature="e#13#80#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/weex-vue-framework/factory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="5742" column="58" lean-forward="true" selection-start-line="5742" selection-start-column="58" selection-end-line="5742" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/shared/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="189" column="58" selection-start-line="189" selection-start-column="58" selection-end-line="189" selection-end-column="58" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="8" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/解析/辅助函数.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/解析/compiler.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="657" column="20" selection-start-line="657" selection-start-column="20" selection-end-line="657" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/vdom/vnode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/moni.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="125" column="13" selection-start-line="125" selection-start-column="13" selection-end-line="125" selection-end-column="13" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!block;n#setArray#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/webpack/declarations/WebpackOptions.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="204" column="6" selection-start-line="204" selection-start-column="6" selection-end-line="204" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/util/next-tick.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#44#78#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/instance/init.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="52" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+          <folding>
+            <element signature="e#13#43#0" expanded="true" />
+            <element signature="e#539#4624#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/instance/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="14" selection-start-column="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/observer/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1724">
+          <caret line="190" column="16" selection-start-line="190" selection-start-column="10" selection-end-line="190" selection-end-column="16" />
+          <folding>
+            <element signature="e#13#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/components/keep-alive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="115" column="25" selection-start-line="115" selection-start-column="10" selection-end-line="115" selection-end-column="25" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#13#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/vdom/patch.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="69" column="35" selection-start-line="69" selection-start-column="16" selection-end-line="69" selection-end-column="35" />
+          <folding>
+            <element signature="e#360#403#0" expanded="true" />
+            <element signature="n#!!block;n#sameVnode#0" />
+            <element signature="n#!!block;n#sameInputType#0" />
+            <element signature="n#!!block;n#createKeyToOldIdx#0" />
+            <element signature="n#!!block;n#emptyNodeAt#0;n#!!block;n#createPatchFunction#0" />
+            <element signature="n#!!block;n#createRmCb#0;n#!!block;n#createPatchFunction#0" />
+            <element signature="n#!!block;n#removeNode#0;n#!!block;n#createPatchFunction#0" />
+            <element signature="n#!!block;n#isUnknownElement#0;n#!!block;n#createPatchFunction#0" />
+            <element signature="n#!!block;n#createElm#0;n#!!block;n#createPatchFunction#0" />
+            <element signature="n#!!block;n#reactivateComponent#0;n#!!block;n#createPatchFunction#0" />
+            <element signature="n#!!block;n#insert#0;n#!!block;n#createPatchFunction#0" />
+            <element signature="n#!!block;n#createChildren#0;n#!!block;n#createPatchFunction#0" />
+            <element signature="n#!!block;n#isPatchable#0;n#!!block;n#createPatchFunction#0" />
+            <element signature="n#!!block;n#invokeCreateHooks#0;n#!!block;n#createPatchFunction#0" />
+            <element signature="n#!!block;n#addVnodes#0;n#!!block;n#createPatchFunction#0" />
+            <element signature="n#!!block;n#invokeDestroyHook#0;n#!!block;n#createPatchFunction#0" />
+            <element signature="n#!!block;n#removeVnodes#0;n#!!block;n#createPatchFunction#0" />
+            <element signature="n#!!block;n#removeAndInvokeRemoveHook#0;n#!!block;n#createPatchFunction#0" />
+            <element signature="n#!!block;n#updateChildren#0;n#!!block;n#createPatchFunction#0" />
+            <element signature="n#!!block;n#checkDuplicateKeys#0;n#!!block;n#createPatchFunction#0" />
+            <element signature="n#!!block;n#findIdxInOld#0;n#!!block;n#createPatchFunction#0" />
+            <element signature="n#!!block;n#hydrate#0;n#!!block;n#createPatchFunction#0" />
+            <element signature="n#!!block;n#assertNodeMatch#0;n#!!block;n#createPatchFunction#0" />
+            <element signature="e#22908#22983#0" />
+            <element signature="e#23786#23875#0" />
+            <element signature="e#23909#24558#0" />
+            <element signature="e#25326#26349#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/platforms/web/util/class.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/core/observer/watcher.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="568">
+          <caret line="109" column="25" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="25" />
+          <folding>
+            <element signature="e#13#124#0" expanded="true" />
+            <element signature="e#3767#3937#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/core/instance/lifecycle.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="359" column="17" lean-forward="true" selection-start-line="359" selection-start-column="17" selection-end-line="359" selection-end-column="17" />
+        <state relative-caret-position="271">
+          <caret line="196" column="27" selection-start-line="196" selection-start-column="20" selection-end-line="196" selection-end-column="27" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="e#13#43#0" expanded="true" />
-            <element signature="e#1632#2550#0" />
             <element signature="e#2595#2687#0" />
             <element signature="e#2728#3810#0" />
+            <element signature="e#3958#4604#0" />
+            <element signature="e#4760#5199#0" />
+            <element signature="n#!!block;n#updateChildComponent#0" />
             <element signature="n#!!block;n#isInInactiveTree#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/util/options.js">
+    <entry file="file://$PROJECT_DIR$/src/core/vdom/helpers/merge-hook.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="615" column="65" selection-start-line="615" selection-start-column="65" selection-end-line="615" selection-end-column="65" />
+        <state relative-caret-position="72">
+          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/vue.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="6153" column="87" lean-forward="true" selection-start-line="6153" selection-start-column="87" selection-end-line="6153" selection-end-column="87" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#13#43#0" expanded="true" />
-            <element signature="e#1806#2468#0" />
-            <element signature="n#!!block;n#normalizeProps#0" />
-            <element signature="n#!!block;n#resolveAsset#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/instance/inject.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="63" column="45" selection-start-line="63" selection-start-column="31" selection-end-line="63" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/instance/init.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="112" column="12" lean-forward="true" selection-start-line="112" selection-start-column="12" selection-end-line="112" selection-end-column="12" />
-          <folding>
-            <element signature="e#13#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue_source.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="18" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/解析/流程.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/解析/流程解析.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/moni.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-100">
-          <caret line="5" column="29" lean-forward="true" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/util/props.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="20" column="28" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/util/env.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="3" column="21" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="21" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/util/lang.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="20" column="67" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="67" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/instance/state.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="766">
-          <caret line="153" column="14" selection-start-line="153" selection-start-column="10" selection-end-line="153" selection-end-column="14" />
-          <folding>
-            <element signature="e#13#43#0" expanded="true" />
-            <element signature="n#!!block;n#createGetterInvoker#0" />
-            <element signature="e#9926#10448#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/core/observer/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="199" column="3" lean-forward="true" selection-start-line="199" selection-start-column="3" selection-end-line="199" selection-end-column="3" />
-          <folding>
-            <element signature="e#3695#3971#0" />
-            <element signature="e#4015#4603#0" />
+            <element signature="e#25694#25723#0" />
+            <element signature="e#30393#31093#0" />
+            <element signature="e#85059#85171#0" />
+            <element signature="e#85245#85760#0" />
+            <element signature="e#87742#87859#0" />
+            <element signature="e#103017#103196#0" />
+            <element signature="e#103245#103983#0" />
+            <element signature="e#104029#105021#0" />
+            <element signature="e#107137#108301#0" />
+            <element signature="e#108471#109056#0" />
+            <element signature="e#109188#109680#0" />
+            <element signature="e#109226#109673#0" />
+            <element signature="e#134300#134842#0" />
+            <element signature="e#158515#158787#0" />
+            <element signature="e#159431#159521#0" />
+            <element signature="e#159569#159749#0" />
+            <element signature="e#159780#159976#0" />
+            <element signature="e#160024#160387#0" />
+            <element signature="e#160617#161007#0" />
+            <element signature="e#161148#161172#0" />
+            <element signature="e#161299#161725#0" />
+            <element signature="e#164125#164976#0" />
+            <element signature="e#165961#166278#0" />
+            <element signature="e#167900#168217#0" />
+            <element signature="e#168270#169144#0" />
+            <element signature="e#172794#173230#0" />
+            <element signature="e#173284#173424#0" />
+            <element signature="e#180543#184443#0" />
+            <element signature="e#186669#187117#0" />
+            <element signature="e#272447#274415#0" />
+            <element signature="e#287874#290648#0" />
           </folding>
         </state>
       </provider>

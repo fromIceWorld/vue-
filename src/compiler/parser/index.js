@@ -596,6 +596,7 @@ function processOnce (el) {
 
 // handle content being passed to a component as slot,
 // e.g. <template slot="xxx">, <div slot-scope="xxx">
+// scope 属性在2.5被废除
 function processSlotContent (el) {
   let slotScope
   if (el.tag === 'template') {
@@ -755,28 +756,115 @@ function processComponent (el) {
   }
 }
 
+<template :value="obj" @click = "change"></template>
+/*
+    el={
+      attrsList = [
+        {name:':value.sync.camel.prop',value:'obj'},
+        {name:'@click.prevent',value:'change'},
+      ]
+    }
+
+  <--------------------modifiers--获取修饰符，增加 hasBindings属性，------------------------->
+  el={
+      hasBindings:true
+      attrsList = [
+        {name:':value',value:'obj'},        modifiers=>{sync:true}
+        {name:'@click',value:'change'},     modifiers=>{prevent:true}
+      ]
+    }
+
+   <-------------------- v-bind | : 属性 ------------------------->
+  在v-bind:key = "value"
+  .prop && !isDynamic  =>>   name = camelize(name)
+  .camel && !isDynamic  =>>   name = camelize(name)
+  .sync
+  将parseFilters(value)返回的值与事件绑定
+  value ==>> obj
+  res = {
+          exp:obj,
+          key:null
+      }
+  value ==>> obj.name
+  res = {
+          exp:obj,
+          key:name
+      }
+  value ==>> [obj.name]
+  res = {
+          exp:obj,
+          key:name
+      }
+  res.key === null 的话
+  syncGen =  `${value}=${$event}`
+  res.key !== null 的话
+  syncGen = `$set(${res.exp}, ${res.key}, ${$event})`
+  /-/添加
+  addHandler(
+                el,
+                `update:${camelize(name)}`,
+                syncGen,
+                null,
+                false,
+                warn,
+                list[i]
+              )
+
+   el.event[`update:${camelize(name)}`] = {syncGen}
+   el.plain = false
+
+   <-------------------- v-on | @ 属性 ------------------------->
+
+   addHandler(el, name, value, modifiers, false, warn, list[i], isDynamic)
+
+   isDynamic是对绑定属性的描述，当绑定的属性是动态时，isDynamic = true
+
+   modifiers:{
+      prevent:
+      passive:
+      right:    当name是click 时，name就等于contextmenu
+      middle:   当name是click 时，name就等于 mouseup
+      capture:  标记  name =  isDynamic ?  '_p(${name},'!')'  :  '!' + name
+      once:     标记  name =  isDynamic ?  '_p(${name},'~')'  :  '~' + name
+      passive:  标记  name =  isDynamic ?  '_p(${name},'&')'  :  '&' + name
+      native:   标记为原生事件，当有这个标记时将事件及修饰符放入 el.nativeEvents,
+                  没有的话将事件及修饰符放入 el.events
+   }
+   el.events['click'] = {
+                    value:change,
+                    modifiers:{
+                        prevent:true
+                      }
+                    }
+
+      <-------------------- v-[***]=**  其他指令 ------------------------->
+addDirective(el, name, rawName, value, arg, isDynamic, modifiers, list[i])
+el.directives = [{name, rawName, value, arg, isDynamic, modifiers}]
+el.plain = false
+*/
+
 function processAttrs (el) {
   const list = el.attrsList
   let i, l, name, rawName, value, modifiers, syncGen, isDynamic
   for (i = 0, l = list.length; i < l; i++) {
     name = rawName = list[i].name
     value = list[i].value
-    if (dirRE.test(name)) {
+    if (dirRE.test(name)) {                                            //--    /^v-|^@|^:/
       // mark element as dynamic
       el.hasBindings = true
       // modifiers
-      modifiers = parseModifiers(name.replace(dirRE, ''))
+      modifiers = parseModifiers(name.replace(dirRE, ''))              //--    /^v-|^@|^:/
       // support .foo shorthand syntax for the .prop modifier
-      if (process.env.VBIND_PROP_SHORTHAND && propBindRE.test(name)) {
+      if (process.env.VBIND_PROP_SHORTHAND && propBindRE.test(name)) { //--    /^\./
         (modifiers || (modifiers = {})).prop = true
         name = `.` + name.slice(1).replace(modifierRE, '')
       } else if (modifiers) {
-        name = name.replace(modifierRE, '')
+        name = name.replace(modifierRE, '')                            //--    /\.[^.\]]+(?=[^\]]*$)/g
       }
-      if (bindRE.test(name)) { // v-bind
-        name = name.replace(bindRE, '')
+      if (bindRE.test(name)) { // v-bind                               //--    /^:|^\.|^v-bind:/
+        name = name.replace(bindRE, '')                                //--    /^:|^\.|^v-bind:/
         value = parseFilters(value)
-        isDynamic = dynamicArgRE.test(name)
+        isDynamic = dynamicArgRE.test(name)                            //--    /^\[.*\]$/
         if (isDynamic) {
           name = name.slice(1, -1)
         }
@@ -848,10 +936,10 @@ function processAttrs (el) {
           name = name.slice(1, -1)
         }
         addHandler(el, name, value, modifiers, false, warn, list[i], isDynamic)
-      } else { // normal directives
+      } else { // normal directives  v-model = value
         name = name.replace(dirRE, '')
         // parse arg
-        const argMatch = name.match(argRE)
+        const argMatch = name.match(argRE)   // /:(.*)$/
         let arg = argMatch && argMatch[1]
         isDynamic = false
         if (arg) {
@@ -880,7 +968,7 @@ function processAttrs (el) {
           )
         }
       }
-      addAttr(el, name, JSON.stringify(value), list[i])
+      addAttr(el, name, JSON.stringify(value), list[i])  // attrs.push({name,value,})
       // #6887 firefox doesn't update muted state if set via attribute
       // even immediately after element creation
       if (!el.component &&
@@ -904,7 +992,7 @@ function checkInFor (el: ASTElement): boolean {
 }
 
 function parseModifiers (name: string): Object | void {
-  const match = name.match(modifierRE)
+  const match = name.match(modifierRE)                    //--   /\.[^.\]]+(?=[^\]]*$)/g
   if (match) {
     const ret = {}
     match.forEach(m => { ret[m.slice(1)] = true })

@@ -21,7 +21,7 @@ export function parseText (
   text: string,
   delimiters?: [string, string]
 ): TextParseResult | void {
-  const tagRE = delimiters ? buildRegex(delimiters) : defaultTagRE
+  const tagRE = delimiters ? buildRegex(delimiters) : defaultTagRE //   /\{\{((?:.|\r?\n)+?)\}\}/g
   if (!tagRE.test(text)) {
     return
   }

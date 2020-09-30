@@ -121,7 +121,7 @@ function genHandler (handler: ASTElementHandler | Array<ASTElementHandler>): str
     let code = ''
     let genModifierCode = ''
     const keys = []
-    for (const key in handler.modifiers) {
+    for (const key in handler.modifiers) { //   prevent : '$event.preventDefault();'
       if (modifierCode[key]) {
         genModifierCode += modifierCode[key]
         // left/right

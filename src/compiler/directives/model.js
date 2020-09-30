@@ -91,12 +91,12 @@ export function parseModel (val: string): ModelParseResult {
   str = val
   index = expressionPos = expressionEndPos = 0
 
-  while (!eof()) {
-    chr = next()
+  while (!eof()) {                 //--- eof = index >= len
+    chr = next()                   //--- str.charCodeAt(++index)
     /* istanbul ignore if */
-    if (isStringStart(chr)) {
+    if (isStringStart(chr)) { 双引号和单引号     //--- chr === 0x22 || chr === 0x27
       parseString(chr)
-    } else if (chr === 0x5B) {
+    } else if (chr === 0x5B) { [ 左中括号
       parseBracket(chr)
     }
   }
@@ -124,12 +124,12 @@ function parseBracket (chr: number): void {
   expressionPos = index
   while (!eof()) {
     chr = next()
-    if (isStringStart(chr)) {
+    if (isStringStart(chr)) {   双引号和单引号     //--- chr === 0x22 || chr === 0x27
       parseString(chr)
       continue
     }
-    if (chr === 0x5B) inBracket++
-    if (chr === 0x5D) inBracket--
+    if (chr === 0x5B) inBracket++       左中括号
+    if (chr === 0x5D) inBracket--       右中括号
     if (inBracket === 0) {
       expressionEndPos = index
       break
